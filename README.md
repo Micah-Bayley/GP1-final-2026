@@ -15,3 +15,7 @@
 # Desert Ruins
 #    Author: Trixie
 #    License: CC0 Public Domain
+
+# 16x16 Assorted RPG Icons
+#    Author: Shade
+#    License: CC0 Public Domain
