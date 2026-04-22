@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="New Game Project"
+run/main_scene="uid://cb2if41c0silj"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SettingsManager="*uid://cce0ptgf05sn7"
+AudioManager="*uid://c58aijfh12kqh"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Localization/translation.en.translation", "res://Localization/translation.fr.translation")
 
 [physics]
 

@@ -19,3 +19,8 @@
 ## 16x16 Assorted RPG Icons
   Author: Shade
   License: CC0 Public Domain
+
+## Desert Background Vector
+Author: Matjannaaa
+License: CC0 Public Domain
+Library: itch.io
