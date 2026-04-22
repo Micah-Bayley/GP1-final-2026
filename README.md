@@ -1,26 +1,26 @@
 # Assets Used
 
 ## Rockey Desert Landscape
-  Author: Emcee Flesher
+  Author: Emcee Flesher<br>
   License: CC0 Public Domain
 
 ## Hajileee's Fantasy Characters Pack
-  Author: Eli Cuaycong
+  Author: Eli Cuaycong<br>
   License: CC0 Public Domain
 
 ## Inca Game Assets
-  Author:
+  Author:<br>
   License: CC0 Public Domain
 
 ## Desert Ruins
-  Author: Trixie
+  Author: Trixie<br>
   License: CC0 Public Domain
 
 ## 16x16 Assorted RPG Icons
-  Author: Shade
+  Author: Shade<br>
   License: CC0 Public Domain
 
 ## Desert Background Vector
-Author: Matjannaaa
-License: CC0 Public Domain
-Library: itch.io
+Author: Matjannaaa<br>
+License: CC0 Public Domain<br>
+Library: itch.io<br>
