@@ -38,6 +38,7 @@ size_flags_horizontal = 4
 texture = ExtResource("2_wu84c")
 
 [node name="Options" type="MarginContainer" parent="CanvasLayer" unique_id=1540058348]
+visible = false
 custom_minimum_size = Vector2(286.435, 0)
 anchors_preset = 8
 anchor_left = 0.5
