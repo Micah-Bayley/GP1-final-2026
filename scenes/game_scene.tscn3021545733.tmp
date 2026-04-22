@@ -7,11 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://qvmfyp55fyek" path="res://Assets/background/rocky-nowater-mid.png" id="3_rurhu"]
 [ext_resource type="Texture2D" uid="uid://ds4mlnsi1dxem" path="res://Assets/background/rocky-nowater-close.png" id="4_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/player.tscn" id="6_rgj8m"]
+[ext_resource type="PackedScene" uid="uid://crkfeetak1wn0" path="res://Scenes/terrain.tscn" id="7_2fmhe"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgj8m"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2fmhe"]
-normal = Vector2(-1, 0)
 
 [node name="GameScene" type="Node2D" unique_id=869946366]
 script = ExtResource("1_7iton")
@@ -78,15 +76,12 @@ scale = Vector2(3, 3)
 position = Vector2(0, 649)
 shape = SubResource("WorldBoundaryShape2D_rgj8m")
 
-[node name="RightBoundary" type="CollisionShape2D" parent="WorldBoundaries" unique_id=297046417]
-position = Vector2(1157, 649)
-shape = SubResource("WorldBoundaryShape2D_2fmhe")
+[node name="Terrain" parent="." unique_id=485759081 instance=ExtResource("7_2fmhe")]
+position = Vector2(1188, 586)
+MoveSpeed = -3.5
 
 [node name="Timer" type="Timer" parent="." unique_id=582660387]
 wait_time = 2.0
 autostart = true
-
-[node name="SpawnPoint" type="Node2D" parent="." unique_id=1356806767]
-position = Vector2(1188, 586)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

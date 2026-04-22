@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const MAX_JUMPS = 2
@@ -18,13 +17,14 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		jumps_left = MAX_JUMPS
 
-	if Input.is_action_just_pressed("jump") and jumps_left > 1:
+	if Input.is_action_just_pressed("jump") and jumps_left >= 1:
 		velocity.y = JUMP_VELOCITY
 		jumps_left -= 1
 
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
+		$Sprite2D.scale.x = direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 

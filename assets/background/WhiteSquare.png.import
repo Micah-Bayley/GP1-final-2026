@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byikyc70sdkc2"
-path="res://.godot/imported/WhiteSquare.png-0ff7f6ccc65255ebec19f7a6b6efcb67.ctex"
+path="res://.godot/imported/WhiteSquare.png-f05556199ed37f1894363a434886566a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/WhiteSquare.png"
-dest_files=["res://.godot/imported/WhiteSquare.png-0ff7f6ccc65255ebec19f7a6b6efcb67.ctex"]
+source_file="res://Assets/background/WhiteSquare.png"
+dest_files=["res://.godot/imported/WhiteSquare.png-f05556199ed37f1894363a434886566a.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c20ieeuvrp6na"
-path="res://.godot/imported/rocky-far-mountains.png-8cfbcfb0ae85ae6eb1246724dcf53f37.ctex"
+path="res://.godot/imported/rocky-far-mountains.png-985d5f15c8332d0196075d32b0c82525.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/rocky-far-mountains.png"
-dest_files=["res://.godot/imported/rocky-far-mountains.png-8cfbcfb0ae85ae6eb1246724dcf53f37.ctex"]
+source_file="res://Assets/background/rocky-far-mountains.png"
+dest_files=["res://.godot/imported/rocky-far-mountains.png-985d5f15c8332d0196075d32b0c82525.ctex"]
 
 [params]
 
