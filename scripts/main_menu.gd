@@ -25,9 +25,8 @@ func apply_settings():
 	$CanvasLayer/Options/VBoxContainer/DisplayBox/CheckBox.button_pressed = SettingsManager.get_setting("graphics", "fullscreen")
 	set_fullscreen()
 	match SettingsManager.get_setting("graphics", "language"):
-		"en": flag_rect.texture = load("res://Assets/Images/english_flag.webp")
-		"fr": flag_rect.texture = load("res://Assets/Images/Flag_of_France_(1790–1794).svg.png")
-		"es": flag_rect.texture = load("res://Assets/Images/Bandera_de_España.svg")
+		"en": flag_rect.texture = load("res://assets/english_flag.webp")
+		"fr": flag_rect.texture = load("res://assets/Flag_of_France_(1790–1794).svg.png")
 
 func _on_save_button_pressed() -> void:
 	$CanvasLayer/ClickSFX.play(0.01)
@@ -59,13 +58,13 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 func _on_english_pressed() -> void:
 	$CanvasLayer/ClickSFX.play(0.01)
 	TranslationServer.set_locale("en")
-	flag_rect.texture = load("res://Assets/Images/english_flag.webp")
+	flag_rect.texture = load("res://assets/english_flag.webp")
 
 
 func _on_french_pressed() -> void:
 	$CanvasLayer/ClickSFX.play(0.01)
 	TranslationServer.set_locale("fr")
-	flag_rect.texture = load("res://Assets/Images/Flag_of_France_(1790–1794).svg.png")
+	flag_rect.texture = load("res://assets/Flag_of_France_(1790–1794).svg.png")
 
 func set_fullscreen():
 	if $CanvasLayer/Options/VBoxContainer/DisplayBox/CheckBox.button_pressed:

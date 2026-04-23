@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ypngqa0wghuo"
-path="res://.godot/imported/rocky-nowater-far.png-81f4add3fd60ee2a00fcae91599a7551.ctex"
+path="res://.godot/imported/rocky-nowater-far.png-44b1d469e6ff84c3b07906469eff672b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/background/rocky-nowater-far.png"
-dest_files=["res://.godot/imported/rocky-nowater-far.png-81f4add3fd60ee2a00fcae91599a7551.ctex"]
+source_file="res://assets/background/rocky-nowater-far.png"
+dest_files=["res://.godot/imported/rocky-nowater-far.png-44b1d469e6ff84c3b07906469eff672b.ctex"]
 
 [params]
 

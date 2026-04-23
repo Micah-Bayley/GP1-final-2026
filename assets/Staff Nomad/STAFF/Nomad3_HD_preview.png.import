@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://41fyxc4mbecx"
-path="res://.godot/imported/Nomad3_HD_preview.png-4fa5665202a632addfe3ff7ba56d18bf.ctex"
+path="res://.godot/imported/Nomad3_HD_preview.png-ce1999a4ff12f4b0a249fd7931ad97fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Staff Nomad/STAFF/Nomad3_HD_preview.png"
-dest_files=["res://.godot/imported/Nomad3_HD_preview.png-4fa5665202a632addfe3ff7ba56d18bf.ctex"]
+source_file="res://assets/Staff Nomad/STAFF/Nomad3_HD_preview.png"
+dest_files=["res://.godot/imported/Nomad3_HD_preview.png-ce1999a4ff12f4b0a249fd7931ad97fb.ctex"]
 
 [params]
 

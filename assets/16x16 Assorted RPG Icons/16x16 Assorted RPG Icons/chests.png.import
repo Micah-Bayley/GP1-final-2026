@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://hm4fqde3sb8f"
-path="res://.godot/imported/chests.png-8e7ad8bbcd0f5c1daa41a241a3b5366d.ctex"
+path="res://.godot/imported/chests.png-2761839e96c9296f5061dd440314a9e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/16x16 Assorted RPG Icons/16x16 Assorted RPG Icons/chests.png"
-dest_files=["res://.godot/imported/chests.png-8e7ad8bbcd0f5c1daa41a241a3b5366d.ctex"]
+source_file="res://assets/16x16 Assorted RPG Icons/16x16 Assorted RPG Icons/chests.png"
+dest_files=["res://.godot/imported/chests.png-2761839e96c9296f5061dd440314a9e4.ctex"]
 
 [params]
 
