@@ -10,6 +10,10 @@ var dash_meter = 100.0 # might change
 var is_dashing = false
 var can_dash = true
 
+enum State { IDLE, RUNNING, JUMPING, DASHING, DYING, ATTACKING }
+
+enum PowerState { NORMAL, INVINCIBLE, FAST, INFDASH }
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
