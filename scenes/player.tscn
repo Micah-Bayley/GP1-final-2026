@@ -1,92 +1,328 @@
 [gd_scene format=3 uid="uid://be8qbmt0fe144"]
 
-[ext_resource type="Script" path="res://Scenes/spawn_manager.gd" id="1_fjrip"]
-[ext_resource type="Texture2D" uid="uid://byikyc70sdkc2" path="res://assets/background/WhiteSquare.png" id="2_smehm"]
-[ext_resource type="Texture2D" uid="uid://c20ieeuvrp6na" path="res://assets/background/rocky-far-mountains.png" id="3_ur7pv"]
-[ext_resource type="Texture2D" uid="uid://ypngqa0wghuo" path="res://assets/background/rocky-nowater-far.png" id="4_y4r1p"]
-[ext_resource type="Texture2D" uid="uid://qvmfyp55fyek" path="res://assets/background/rocky-nowater-mid.png" id="5_d2wvv"]
-[ext_resource type="Texture2D" uid="uid://ds4mlnsi1dxem" path="res://assets/background/rocky-nowater-close.png" id="6_3v2ag"]
-[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="7_jej6c"]
+[ext_resource type="Texture2D" uid="uid://b1276tcjivx81" path="res://assets/Staff Nomad/STAFF/Nomad3_Asset.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://wddgu6jaiy0m" path="res://scripts/player.gd" id="1_g2els"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgj8m"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(9, 33)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2fmhe"]
-normal = Vector2(-1, 0)
+[sub_resource type="Animation" id="Animation_3vyb7"]
+length = 1.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_3vyb7")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
-[node name="GameScene" type="Node2D" unique_id=869946366]
-script = ExtResource("1_fjrip")
+[sub_resource type="Animation" id="Animation_qlg0r"]
+resource_name = "attacking"
+length = 1.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_3vyb7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2), Vector2i(6, 2), Vector2i(7, 2), Vector2i(8, 2), Vector2i(9, 2), Vector2i(10, 2)]
+}
 
-[node name="ParallaxBackground" type="Node2D" parent="." unique_id=1612332402]
-position = Vector2(4, -134)
+[sub_resource type="Animation" id="Animation_fjrip"]
+resource_name = "dashing"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_3vyb7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(5, 3)]
+}
 
-[node name="Sky" type="Sprite2D" parent="ParallaxBackground" unique_id=1322483121]
-modulate = Color(1.92523e-06, 0.57480556, 0.5763835, 1)
-position = Vector2(652.99994, 531.99994)
-scale = Vector2(18.747967, 10.171875)
-texture = ExtResource("2_smehm")
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "dying"
+length = 2.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_3vyb7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.001, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5), Vector2i(6, 5), Vector2i(7, 5)]
+}
 
-[node name="Mountains_01" type="Parallax2D" parent="ParallaxBackground" unique_id=614351444]
-scroll_scale = Vector2(0.2, 0.2)
-scroll_offset = Vector2(0, -96)
-repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(-50, 0)
-repeat_times = 2
+[sub_resource type="Animation" id="Animation_smehm"]
+resource_name = "falling"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_3vyb7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(4, 4), Vector2i(3, 4), Vector2i(4, 4), Vector2i(3, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(0, 0, 0, 0),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 0), Vector2(0, 1)]
+}
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains_01" unique_id=686976105]
-texture = ExtResource("3_ur7pv")
-centered = false
+[sub_resource type="Animation" id="Animation_g2els"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_3vyb7")]
+}
 
-[node name="Mountains_02" type="Parallax2D" parent="ParallaxBackground" unique_id=525500763]
-scroll_scale = Vector2(0.4, 0.4)
-scroll_offset = Vector2(0, -96)
-repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(-160, 0)
-repeat_times = 2
+[sub_resource type="Animation" id="Animation_dqkch"]
+resource_name = "jumping"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_3vyb7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4)]
+}
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains_02" unique_id=1825414664]
-texture = ExtResource("4_y4r1p")
-centered = false
+[sub_resource type="Animation" id="Animation_qhqgy"]
+resource_name = "running"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_3vyb7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1), Vector2i(6, 1), Vector2i(7, 1)]
+}
 
-[node name="Mountains_03" type="Parallax2D" parent="ParallaxBackground" unique_id=2051011129]
-scroll_scale = Vector2(0.6, 0.6)
-scroll_offset = Vector2(0, -96)
-repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(-300, 0)
-repeat_times = 2
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhqgy"]
+_data = {
+&"RESET": SubResource("Animation_3vyb7"),
+&"attacking": SubResource("Animation_qlg0r"),
+&"dashing": SubResource("Animation_fjrip"),
+&"dying": SubResource("Animation_tuyoq"),
+&"falling": SubResource("Animation_smehm"),
+&"idle": SubResource("Animation_g2els"),
+&"jumping": SubResource("Animation_dqkch"),
+&"running": SubResource("Animation_qhqgy")
+}
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains_03" unique_id=1777809423]
-texture = ExtResource("5_d2wvv")
-centered = false
+[node name="Player" type="CharacterBody2D" unique_id=1506782077]
+script = ExtResource("1_g2els")
 
-[node name="Mountains_04" type="Parallax2D" parent="ParallaxBackground" unique_id=1797999639]
-scroll_offset = Vector2(0, -96)
-repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(-600, 0)
-repeat_times = 2
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1868995522]
+texture_filter = 1
+texture = ExtResource("1_3vyb7")
+hframes = 12
+vframes = 6
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains_04" unique_id=1823919137]
-texture = ExtResource("6_3v2ag")
-centered = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1405957503]
+visible = false
+position = Vector2(1.5, 15.5)
+shape = SubResource("RectangleShape2D_g2els")
 
-[node name="Player" parent="." unique_id=1506782077 instance=ExtResource("7_jej6c")]
-position = Vector2(61, 533)
-scale = Vector2(3, 3)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=900868354]
+libraries/ = SubResource("AnimationLibrary_qhqgy")
+autoplay = &"RESET"
 
-[node name="WorldBoundaries" type="StaticBody2D" parent="." unique_id=1731710863]
+[node name="DashDuration" type="Timer" parent="." unique_id=27951115]
+wait_time = 0.8
 
-[node name="BottomBoundary" type="CollisionShape2D" parent="WorldBoundaries" unique_id=505811273]
-position = Vector2(0, 649)
-shape = SubResource("WorldBoundaryShape2D_rgj8m")
+[node name="DashCooldown" type="Timer" parent="." unique_id=701902332]
+wait_time = 0.1
 
-[node name="RightBoundary" type="CollisionShape2D" parent="WorldBoundaries" unique_id=297046417]
-position = Vector2(1157, 649)
-shape = SubResource("WorldBoundaryShape2D_2fmhe")
-
-[node name="Timer" type="Timer" parent="." unique_id=582660387]
-wait_time = 2.0
-autostart = true
-
-[node name="SpawnPoint" type="Node2D" parent="." unique_id=1356806767]
-position = Vector2(1188, 586)
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DashDuration" to="." method="_on_dash_duration_timeout"]
+[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
