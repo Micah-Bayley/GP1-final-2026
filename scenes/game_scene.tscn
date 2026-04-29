@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://ocdpd482iv1r"]
 
-[ext_resource type="Script" uid="uid://yqsmkbqn1h6s" path="res://Scenes/spawn_manager.gd" id="1_7iton"]
-[ext_resource type="Texture2D" uid="uid://c20ieeuvrp6na" path="res://Assets/background/rocky-far-mountains.png" id="1_bw6k5"]
-[ext_resource type="Texture2D" uid="uid://byikyc70sdkc2" path="res://Assets/background/WhiteSquare.png" id="1_y3j0m"]
-[ext_resource type="Texture2D" uid="uid://ypngqa0wghuo" path="res://Assets/background/rocky-nowater-far.png" id="2_y3j0m"]
-[ext_resource type="Texture2D" uid="uid://qvmfyp55fyek" path="res://Assets/background/rocky-nowater-mid.png" id="3_rurhu"]
-[ext_resource type="Texture2D" uid="uid://ds4mlnsi1dxem" path="res://Assets/background/rocky-nowater-close.png" id="4_kk2rg"]
-[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/player.tscn" id="6_rgj8m"]
+[ext_resource type="Script" path="res://Scenes/spawn_manager.gd" id="1_7iton"]
+[ext_resource type="Texture2D" uid="uid://c20ieeuvrp6na" path="res://assets/background/rocky-far-mountains.png" id="1_bw6k5"]
+[ext_resource type="Texture2D" uid="uid://byikyc70sdkc2" path="res://assets/background/WhiteSquare.png" id="1_y3j0m"]
+[ext_resource type="Texture2D" uid="uid://ypngqa0wghuo" path="res://assets/background/rocky-nowater-far.png" id="2_y3j0m"]
+[ext_resource type="Texture2D" uid="uid://qvmfyp55fyek" path="res://assets/background/rocky-nowater-mid.png" id="3_rurhu"]
+[ext_resource type="Texture2D" uid="uid://ds4mlnsi1dxem" path="res://assets/background/rocky-nowater-close.png" id="4_kk2rg"]
+[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="6_rgj8m"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgj8m"]
 
