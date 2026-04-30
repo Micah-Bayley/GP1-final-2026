@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://cb2if41c0silj"]
+[gd_scene format=4 uid="uid://bbkvh32iju65v"]
 
 [ext_resource type="Script" uid="uid://dghuuutrdayxb" path="res://scripts/main_menu.gd" id="1_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://b6xqpctfvpk56" path="res://assets/CozyDesert.png" id="2_n45e2"]
