@@ -73,15 +73,20 @@ func save_settings():
 
 # Load settings from file
 func load_settings():
-	if config.load(SETTINGS_FILE) == OK:
+	var err = config.load(SETTINGS_FILE)
+	
+	if err != OK:
+		# First launch → create file with defaults
+		save_settings()
+	else:
 		for category in settings.keys():
 			for key in settings[category].keys():
 				settings[category][key] = config.get_value(category, key, settings[category][key])
 	load_difficulty()
 
 func load_difficulty():
-	var set_difficulty = settings["gameplay"]["difficulty"]
-	current_game_difficulty = set_difficulty
+	var set_difficulty = int(settings["gameplay"]["difficulty"])
+	current_game_difficulty = clamp(set_difficulty, 0, DIFFICULTY.size() - 1)
 	
 func change_difficulty(new_diff: DIFFICULTY):
 	current_game_difficulty = new_diff
@@ -106,6 +111,15 @@ func load_game():
 			if parsed is Dictionary:
 				save_data = parsed
 			file.close()
+	else:
+		# First run defaults
+		save_data = {
+			"player": {
+				"level": 1,
+				"hp": 100
+			}
+	}
+	save_game()
 
 func save_game_encrypted():
 	var file = FileAccess.open_encrypted_with_pass(SAVE_FILE_ENCRYPT, FileAccess.WRITE, secret_key)

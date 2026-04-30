@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ocdpd482iv1r"]
 
-[ext_resource type="Script" path="res://Scenes/spawn_manager.gd" id="1_7iton"]
+[ext_resource type="Script" uid="uid://yqsmkbqn1h6s" path="res://Scenes/spawn_manager.gd" id="1_7iton"]
 [ext_resource type="Texture2D" uid="uid://c20ieeuvrp6na" path="res://assets/background/rocky-far-mountains.png" id="1_bw6k5"]
 [ext_resource type="Texture2D" uid="uid://byikyc70sdkc2" path="res://assets/background/WhiteSquare.png" id="1_y3j0m"]
 [ext_resource type="Texture2D" uid="uid://ypngqa0wghuo" path="res://assets/background/rocky-nowater-far.png" id="2_y3j0m"]

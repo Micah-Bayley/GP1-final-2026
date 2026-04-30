@@ -4,10 +4,10 @@ PLAY,Play,Jouer
 MUSIC,Music,Musique
 SFX,Sound Effects,Effets Sonores
 SAVE,Save,Sauvegarder
-LANGUAGE,Language,Language
+LANGUAGE,Language,Langue
 OPTIONS,Options,Options
-EXIT,Exit,Quitter,Salida
-SELECTED_LANGUAGE,Selected Language,Language Selectioneo
+EXIT,Exit,Quitter
+SELECTED_LANGUAGE,Selected Language,Langue Sélectionnée
 AUDIO,Audio,Audio
-FULLSCREEN,Fullscreen,Plein-Ecran
+FULLSCREEN,Fullscreen,Plein écran
 DISPLAY,Display,Affichage
