@@ -1,13 +1,14 @@
-extends StaticBody2D
+extends Node2D
 
-@export var MoveSpeed = -3.5
+# Despawn when this far left of origin (adjust to your screen width)
+@export var despawn_x := -800.0
 
+var _speed := 300.0
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func set_scroll_speed(s: float):
+	_speed = s
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	global_position.x += MoveSpeed
+func _process(delta):
+	position.x -= _speed * delta
+	if position.x < despawn_x:
+		queue_free()

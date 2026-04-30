@@ -17,6 +17,10 @@ var active_state = State.IDLE
 enum PowerState { NORMAL, INVINCIBLE, FAST, INFDASH }
 var active_powerstate = PowerState.NORMAL
 
+func _process(delta: float) -> void:
+	if global_position.x < 0:
+		print("Game lost")
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta

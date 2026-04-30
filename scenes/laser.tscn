@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c0ycoi1xehxi1"]
+
+[ext_resource type="Script" uid="uid://30lcabhtabum" path="res://scripts/terrain.gd" id="1_a7dhc"]
+[ext_resource type="Texture2D" uid="uid://byikyc70sdkc2" path="res://assets/background/WhiteSquare.png" id="1_xmihv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7dhc"]
+size = Vector2(124, 128)
+
+[node name="Laser" type="Area2D" unique_id=1467228867]
+scale = Vector2(0.19025339, 1.60106)
+script = ExtResource("1_a7dhc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=373509821]
+modulate = Color(0.84313726, 1, 0, 1)
+texture = ExtResource("1_xmihv")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=992830045]
+position = Vector2(63.165413, 64.17173)
+scale = Vector2(1, 0.99999994)
+shape = SubResource("RectangleShape2D_a7dhc")

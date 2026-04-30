@@ -6,48 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://qvmfyp55fyek" path="res://assets/background/rocky-nowater-mid.png" id="3_rurhu"]
 [ext_resource type="Texture2D" uid="uid://ds4mlnsi1dxem" path="res://assets/background/rocky-nowater-close.png" id="4_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="6_rgj8m"]
-[ext_resource type="Script" uid="uid://yqsmkbqn1h6s" path="res://scripts/spawn_manager.gd" id="7_kk2rg"]
-[ext_resource type="Script" uid="uid://brbgkwbcfvo7p" path="res://scripts/terrain_data.gd" id="8_b5spy"]
-[ext_resource type="PackedScene" uid="uid://crkfeetak1wn0" path="res://scenes/terrain/ground_mid.tscn" id="9_utbpp"]
-[ext_resource type="PackedScene" uid="uid://ckpk2nraeh6pc" path="res://scenes/terrain/ground_short.tscn" id="10_mw25s"]
-[ext_resource type="PackedScene" uid="uid://6u1lfokfmi0" path="res://scenes/terrain/ground_tall.tscn" id="11_tcjrq"]
-[ext_resource type="PackedScene" uid="uid://c0ycoi1xehxi1" path="res://scenes/laser.tscn" id="12_rvs2r"]
+[ext_resource type="Script" uid="uid://yqsmkbqn1h6s" path="res://scenes/spawn_manager.gd" id="7_kk2rg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgj8m"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2fmhe"]
 normal = Vector2(-1, 0)
 
-[sub_resource type="Resource" id="Resource_utbpp"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("9_utbpp")
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_tcjrq"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("10_mw25s")
-y_offset = 80.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_rvs2r"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("11_tcjrq")
-allowed_lanes = Array[int]([0, 1, 2])
-y_offset = -50.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_tqxxy"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("12_rvs2r")
-random_rotation = 90.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_5ay1a"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("12_rvs2r")
-allowed_lanes = Array[int]([1, 2])
-y_offset = 300.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kk2rg"]
+size = Vector2(11, 667)
 
 [node name="GameScene" type="Node2D" unique_id=869946366]
 
@@ -117,19 +84,20 @@ shape = SubResource("WorldBoundaryShape2D_rgj8m")
 position = Vector2(1157, 649)
 shape = SubResource("WorldBoundaryShape2D_2fmhe")
 
+[node name="LeftBoundary" type="Area2D" parent="WorldBoundaries" unique_id=600056931]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/LeftBoundary" unique_id=1864483822]
+position = Vector2(-4.5, 323.5)
+shape = SubResource("RectangleShape2D_kk2rg")
+
 [node name="Timer" type="Timer" parent="." unique_id=582660387]
 wait_time = 2.0
 autostart = true
 
+[node name="SpawnPoint" type="Node2D" parent="." unique_id=1356806767]
+position = Vector2(1188, 586)
+
 [node name="Spawner" type="Node2D" parent="." unique_id=1627623242]
 script = ExtResource("7_kk2rg")
-terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_utbpp"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a")])
-lanes = [507.0, 100.0, -100.0, -300.0]
-scroll_speed = 400.0
-min_gap = 150.0
-max_gap = 300.0
-
-[node name="SpawnPoint" type="Node2D" parent="Spawner" unique_id=1356806767]
-position = Vector2(1188, 652)
 
 [connection signal="timeout" from="Timer" to="Spawner" method="_on_timer_timeout"]
