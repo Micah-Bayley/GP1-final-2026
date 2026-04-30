@@ -3,8 +3,10 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const MAX_JUMPS = 2
+const MAX_AIR_DASHES = 3
 
 var jumps_left = MAX_JUMPS
+var air_dashes_left = MAX_AIR_DASHES
 
 @export var dash_speed = 800.0
 @export var dash_duration = 0.15
@@ -24,7 +26,7 @@ var active_powerstate = PowerState.NORMAL
 
 func _physics_process(delta: float) -> void:
 	
-	handle_gravity_and_jump(delta)
+	handle_landing_mechanics(delta)
 	
 	#cooldown timer
 	if dash_cooldown_left > 0:
@@ -43,12 +45,13 @@ func _physics_process(delta: float) -> void:
 	update_animation()
 	move_and_slide()
 
-func handle_gravity_and_jump(delta):
+func handle_landing_mechanics(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
 	if is_on_floor():
 		jumps_left = MAX_JUMPS
+		air_dashes_left = MAX_AIR_DASHES
 
 
 func handle_jump():
@@ -67,8 +70,9 @@ func handle_movement():
 
 
 func handle_dash_check():
-	if Input.is_action_just_pressed("LMB") and dash_cooldown_left <= 0:
+	if Input.is_action_just_pressed("LMB") and dash_cooldown_left <= 0 and air_dashes_left > 0:
 		start_dash()
+		air_dashes_left -= 1
 
 
 func start_dash():
