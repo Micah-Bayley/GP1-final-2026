@@ -58,32 +58,51 @@ theme_override_constants/separation = 7
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
-text = "Game Over"
+text = "GAME_OVER"
 
 [node name="replay" type="Button" parent="CanvasLayer/Main/VBoxContainer" unique_id=2076917871]
+custom_minimum_size = Vector2(270, 0)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
 theme = ExtResource("3_v3hpu")
 text = "REPLAY"
 
 [node name="MainMenu" type="Button" parent="CanvasLayer/Main/VBoxContainer" unique_id=1613457214]
+custom_minimum_size = Vector2(270, 0)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
 theme = ExtResource("3_v3hpu")
 text = "MAIN_MENU"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/VBoxContainer" unique_id=1448462979]
+[node name="Score" type="HBoxContainer" parent="CanvasLayer/Main/VBoxContainer" unique_id=1448462979]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer/Main/VBoxContainer/HBoxContainer" unique_id=1817544204]
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/Main/VBoxContainer/Score" unique_id=1817544204]
 layout_mode = 2
 theme = ExtResource("3_v3hpu")
 theme_override_font_sizes/font_size = 30
-text = "Score:"
+text = "SCORE"
 
-[node name="ScoreValue" type="Label" parent="CanvasLayer/Main/VBoxContainer/HBoxContainer" unique_id=693131901]
+[node name="ScoreValue" type="Label" parent="CanvasLayer/Main/VBoxContainer/Score" unique_id=693131901]
+layout_mode = 2
+theme = ExtResource("3_v3hpu")
+theme_override_font_sizes/font_size = 30
+text = "0 m"
+
+[node name="HighScore" type="HBoxContainer" parent="CanvasLayer/Main/VBoxContainer" unique_id=418018338]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HighScoreLabel" type="Label" parent="CanvasLayer/Main/VBoxContainer/HighScore" unique_id=62985738]
+layout_mode = 2
+theme = ExtResource("3_v3hpu")
+theme_override_font_sizes/font_size = 30
+text = "HIGH_SCORE"
+
+[node name="HighScoreValue" type="Label" parent="CanvasLayer/Main/VBoxContainer/HighScore" unique_id=2064840875]
 layout_mode = 2
 theme = ExtResource("3_v3hpu")
 theme_override_font_sizes/font_size = 30
