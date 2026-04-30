@@ -1,8 +1,5 @@
 extends Node2D
 
-# -----------------------------
-# TUNING
-# -----------------------------
 @export var terrain_types: Array[TerrainData]
 @export var lanes := [
 	300.0,   # ground
@@ -14,9 +11,6 @@ extends Node2D
 @export var min_gap := 100.0        # minimum pixels between spawns
 @export var max_gap := 500.0        # maximum pixels between spawns (randomness)
 
-# -----------------------------
-# INTERNAL STATE
-# -----------------------------
 var _distance_to_next := 0.0  # pixels until next spawn
 var _last_lane := -1
 
