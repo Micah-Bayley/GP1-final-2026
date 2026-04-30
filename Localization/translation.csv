@@ -11,3 +11,8 @@ SELECTED_LANGUAGE,Selected Language,Langue Sélectionnée
 AUDIO,Audio,Audio
 FULLSCREEN,Fullscreen,Plein écran
 DISPLAY,Display,Affichage
+GAME_OVER,Game Over,Partie Terminée
+MAIN_MENU,Main Menu,Menu Principal
+SCORE,Score: ,Score: 
+HIGH_SCORE,High Score: ,Meilleur Score: 
+REPLAY,Replay,Rejouer
