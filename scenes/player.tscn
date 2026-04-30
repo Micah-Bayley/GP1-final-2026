@@ -317,12 +317,3 @@ shape = SubResource("RectangleShape2D_g2els")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=900868354]
 libraries/ = SubResource("AnimationLibrary_qhqgy")
 autoplay = &"RESET"
-
-[node name="DashDuration" type="Timer" parent="." unique_id=27951115]
-wait_time = 0.8
-
-[node name="DashCooldown" type="Timer" parent="." unique_id=701902332]
-wait_time = 0.1
-
-[connection signal="timeout" from="DashDuration" to="." method="_on_dash_duration_timeout"]
-[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
