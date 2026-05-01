@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Desert Run"
-run/main_scene="uid://cb2if41c0silj"
+run/main_scene="uid://ocdpd482iv1r"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 "<<<<<<<HEAD[input]jump"={
