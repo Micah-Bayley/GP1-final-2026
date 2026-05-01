@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cvtxi7rx5wbnu"]
+
+[ext_resource type="Script" uid="uid://pk5t4xb8iway" path="res://scripts/invincible_pickup.gd" id="1_3wyl4"]
+[ext_resource type="Texture2D" uid="uid://c2w20h3keiqk0" path="res://assets/16x16 Assorted RPG Icons/16x16 Assorted RPG Icons/potions.png" id="2_4uy7d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ts1no"]
+radius = 7.071068
+
+[node name="InvinciblePickup" type="Area2D" unique_id=697442361]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_3wyl4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1760706108]
+texture_filter = 1
+texture = ExtResource("2_4uy7d")
+region_enabled = true
+region_rect = Rect2(192, 112, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1627226033]
+shape = SubResource("CircleShape2D_ts1no")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

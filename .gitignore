@@ -1,3 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+/Localization/translation.en.translation
+/Localization/translation.fr.translation
+

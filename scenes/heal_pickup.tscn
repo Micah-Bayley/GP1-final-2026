@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dqaq8q0tb0l1f"]
+
+[ext_resource type="Script" uid="uid://bl70jfm0unqto" path="res://scripts/heal_pickup.gd" id="1_ndtfj"]
+[ext_resource type="Texture2D" uid="uid://c2w20h3keiqk0" path="res://assets/16x16 Assorted RPG Icons/16x16 Assorted RPG Icons/potions.png" id="2_hd0dm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ts1no"]
+radius = 7.071068
+
+[node name="HealPickup" type="Area2D" unique_id=697442361]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_ndtfj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1760706108]
+texture_filter = 1
+texture = ExtResource("2_hd0dm")
+region_enabled = true
+region_rect = Rect2(48, 64, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1627226033]
+shape = SubResource("CircleShape2D_ts1no")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
