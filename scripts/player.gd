@@ -128,6 +128,8 @@ func on_player_laser_touch():
 		return
 	health -= 1
 	health_changed.emit(health)
+	if $Sparks.emitting:
+		$Sparks.restart()
 	$Sparks.emitting = true
 
 func heal():
