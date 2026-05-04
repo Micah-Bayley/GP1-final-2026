@@ -4,12 +4,13 @@ signal health_changed
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const MAX_AIR_DASHES = 10
 const MAX_JUMPS = 2
-const MAX_AIR_DASHES = 3
 const MAX_HEALTH = 3
 
+var air_dashes = 3
 var jumps_left = MAX_JUMPS
-var air_dashes_left = MAX_AIR_DASHES
+var air_dashes_left = air_dashes
 
 @export var health = MAX_HEALTH
 
@@ -22,6 +23,7 @@ var dash_cooldown_left = 0.0
 var dash_direction = Vector2.ZERO
 
 var is_dying = false
+var is_invincible = false
 
 enum State { IDLE, RUNNING, JUMPING, FALLING, DASHING, DYING, ATTACKING }
 var active_state = State.IDLE
@@ -60,7 +62,7 @@ func handle_landing_mechanics(delta):
 	
 	if is_on_floor():
 		jumps_left = MAX_JUMPS
-		air_dashes_left = MAX_AIR_DASHES
+		air_dashes_left = air_dashes
 
 
 func handle_jump():
@@ -122,9 +124,24 @@ func update_state():
 	return
 	
 func on_player_laser_touch():
+	if is_invincible:
+		return
 	health -= 1
 	health_changed.emit(health)
 	$Sparks.emitting = true
+
+func heal():
+	health += 1
+	health_changed.emit(health)
+
+func invincibility():
+	is_invincible = true
+	$InvincibilityTimer.start()
+	modulate = Color.AQUAMARINE
+
+func add_dash():
+	air_dashes += 1
+	air_dashes = clamp(air_dashes, 0, MAX_AIR_DASHES)
 
 func update_animation():
 	match active_state:
@@ -142,3 +159,8 @@ func update_animation():
 			$AnimationPlayer.play("attacking")
 		State.DYING:
 			$AnimationPlayer.play("dying")
+
+
+func _on_invincibility_timer_timeout() -> void:
+	is_invincible = false
+	modulate = Color.WHITE
