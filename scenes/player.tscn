@@ -319,3 +319,18 @@ libraries/ = SubResource("AnimationLibrary_qhqgy")
 autoplay = &"RESET"
 
 [node name="HurtCooldown" type="Timer" parent="." unique_id=1886594548]
+
+[node name="Sparks" type="CPUParticles2D" parent="." unique_id=1304648172]
+position = Vector2(1, 11)
+emitting = false
+amount = 17
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 253.62
+initial_velocity_max = 384.92
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color = Color(1, 1, 0.36862746, 1)

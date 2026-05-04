@@ -124,6 +124,7 @@ func update_state():
 func on_player_laser_touch():
 	health -= 1
 	health_changed.emit(health)
+	$Sparks.emitting = true
 
 func update_animation():
 	match active_state:
