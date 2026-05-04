@@ -19,3 +19,6 @@ centered = false
 position = Vector2(63.165413, 64.17173)
 scale = Vector2(1, 0.99999994)
 shape = SubResource("RectangleShape2D_a7dhc")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
