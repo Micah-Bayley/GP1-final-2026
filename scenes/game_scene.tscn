@@ -25,6 +25,7 @@ normal = Vector2(0, 1)
 [sub_resource type="Resource" id="Resource_utbpp"]
 script = ExtResource("8_b5spy")
 scene = ExtResource("9_utbpp")
+y_offset = -18.0
 metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
 
 [sub_resource type="Resource" id="Resource_tcjrq"]
@@ -36,7 +37,6 @@ metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
 [sub_resource type="Resource" id="Resource_rvs2r"]
 script = ExtResource("8_b5spy")
 scene = ExtResource("11_tcjrq")
-allowed_lanes = Array[int]([0, 1, 2])
 y_offset = -50.0
 metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
 
@@ -51,6 +51,13 @@ script = ExtResource("8_b5spy")
 scene = ExtResource("12_rvs2r")
 allowed_lanes = Array[int]([1, 2])
 y_offset = 300.0
+metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
+
+[sub_resource type="Resource" id="Resource_ldkr4"]
+script = ExtResource("8_b5spy")
+scene = ExtResource("11_tcjrq")
+allowed_lanes = Array[int]([2])
+y_offset = 100.0
 metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ay1a"]
@@ -138,9 +145,11 @@ repeat_times = 2
 texture = ExtResource("4_kk2rg")
 centered = false
 
-[node name="Player" parent="." unique_id=1506782077 instance=ExtResource("6_rgj8m")]
+[node name="Player" parent="." unique_id=1506782077 node_paths=PackedStringArray("spawner", "score_label") instance=ExtResource("6_rgj8m")]
 position = Vector2(65, 534)
 scale = Vector2(3, 3)
+spawner = NodePath("../Spawner")
+score_label = NodePath("../CanvasLayer/MarginContainer2/Score")
 
 [node name="WorldBoundaries" type="StaticBody2D" parent="." unique_id=1731710863]
 
@@ -161,11 +170,10 @@ autostart = true
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1627623242]
 script = ExtResource("7_kk2rg")
-terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_utbpp"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a")])
+terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_utbpp"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4")])
 lanes = [507.0, 100.0, -100.0, -300.0]
-scroll_speed = 400.0
-min_gap = 150.0
-max_gap = 300.0
+min_gap = 200.0
+max_gap = 400.0
 
 [node name="SpawnPoint" type="Node2D" parent="Spawner" unique_id=1356806767]
 position = Vector2(1188, 652)
@@ -186,6 +194,21 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ldkr4")
 value = 50.0
 show_percentage = false
 script = ExtResource("13_tqxxy")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer" unique_id=1307336392]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 36
+
+[node name="Score" type="Label" parent="CanvasLayer/MarginContainer2" unique_id=2142203554]
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+text = "Distance: 0m"
 
 [node name="SandStorm" type="CPUParticles2D" parent="." unique_id=1915215694]
 position = Vector2(-6, 189)

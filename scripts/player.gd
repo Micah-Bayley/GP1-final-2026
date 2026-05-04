@@ -12,11 +12,16 @@ var air_dashes = 3
 var jumps_left = MAX_JUMPS
 var air_dashes_left = air_dashes
 
+var distance_meters := 0.0
+const PIXELS_PER_METER := 64.0
+
 @export var health = MAX_HEALTH
 
 @export var dash_speed = 800.0
 @export var dash_duration = 0.15
-@export var dash_cooldown = 0.5
+@export var dash_cooldown = 0.2
+@export var spawner : Node2D
+@export var score_label : Label
 
 var dash_time_left = 0.0
 var dash_cooldown_left = 0.0
@@ -33,6 +38,12 @@ var active_powerstate = PowerState.NORMAL
 func _process(delta: float) -> void:
 	if global_position.x < -5 || health < 1:
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+		
+	if spawner and score_label:
+		distance_meters += (spawner.scroll_speed * delta) / PIXELS_PER_METER
+		score_label.text = "Distance: " + str(int(round(distance_meters))) + "m"
+	else:
+		print("Please connect the spawner and the score label to the player script")
 
 func _physics_process(delta: float) -> void:
 	
