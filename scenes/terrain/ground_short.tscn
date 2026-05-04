@@ -1,19 +1,19 @@
-[gd_scene format=3 uid="uid://ckpk2nraeh6pc"]
+[gd_scene format=4 uid="uid://ckpk2nraeh6pc"]
 
 [ext_resource type="Script" uid="uid://30lcabhtabum" path="res://scripts/terrain.gd" id="1_tgtqt"]
-[ext_resource type="Texture2D" uid="uid://byikyc70sdkc2" path="res://assets/background/WhiteSquare.png" id="2_svvcx"]
+[ext_resource type="TileSet" uid="uid://dhjsaahmjj3ju" path="res://Tilesets/terrain.tres" id="2_tgtqt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62tj5"]
-size = Vector2(122, 128)
+size = Vector2(97.99999, 128)
 
 [node name="Terrain" type="StaticBody2D" unique_id=485759081]
-scale = Vector2(0.39999998, 0.48000032)
 script = ExtResource("1_tgtqt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1343632854]
-position = Vector2(60.000008, 64.58329)
+position = Vector2(48.000004, 64.58329)
 shape = SubResource("RectangleShape2D_62tj5")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=94262303]
-texture = ExtResource("2_svvcx")
-centered = false
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2147328475]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAAAMAAAAAAAEAAAABAAMAAAABAAEAAAACAAMAAAADAAIAAAACAAIAAAADAAIAAAABAAIAAAABAAEAAAAAAAIAAAAAAAEAAAAAAAEAAAAAAAEAAAABAAEAAAABAAEAAAACAAEAAAADAAIAAAACAAAAAAADAAIAAAABAAAAAAABAAEAAAAAAAAAAAAAAAEAAAA=")
+tile_set = ExtResource("2_tgtqt")
