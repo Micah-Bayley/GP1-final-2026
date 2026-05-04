@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ckpk2nraeh6pc" path="res://scenes/terrain/ground_short.tscn" id="10_mw25s"]
 [ext_resource type="PackedScene" uid="uid://6u1lfokfmi0" path="res://scenes/terrain/ground_tall.tscn" id="11_tcjrq"]
 [ext_resource type="PackedScene" path="res://scenes/laser.tscn" id="12_rvs2r"]
+[ext_resource type="Script" uid="uid://c36ipdximtvk2" path="res://scenes/health_bar.gd" id="13_tqxxy"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgj8m"]
 
@@ -48,6 +49,29 @@ scene = ExtResource("12_rvs2r")
 allowed_lanes = Array[int]([1, 2])
 y_offset = 300.0
 metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ay1a"]
+bg_color = Color(0.8941385, 0.5566252, 0.3630888, 0.64705884)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.894605, 0.7067055, 0.48585325, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldkr4"]
+bg_color = Color(0.6855629, 0, 0.015009863, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="GameScene" type="Node2D" unique_id=869946366]
 
@@ -131,5 +155,22 @@ max_gap = 300.0
 
 [node name="SpawnPoint" type="Node2D" parent="Spawner" unique_id=1356806767]
 position = Vector2(1188, 652)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=443409645]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=353053397]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/MarginContainer" unique_id=723065356]
+custom_minimum_size = Vector2(238.495, 35.93)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_5ay1a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ldkr4")
+value = 50.0
+show_percentage = false
+script = ExtResource("13_tqxxy")
 
 [connection signal="timeout" from="Timer" to="Spawner" method="_on_timer_timeout"]
