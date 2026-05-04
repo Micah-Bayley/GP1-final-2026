@@ -1,16 +1,21 @@
 extends CharacterBody2D
 
+signal health_changed
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const MAX_JUMPS = 2
-const MAX_AIR_DASHES = 10000
+const MAX_AIR_DASHES = 3
+const MAX_HEALTH = 3
 
 var jumps_left = MAX_JUMPS
 var air_dashes_left = MAX_AIR_DASHES
 
+@export var health = MAX_HEALTH
+
 @export var dash_speed = 800.0
 @export var dash_duration = 0.15
-@export var dash_cooldown = 0.2
+@export var dash_cooldown = 0.5
 
 var dash_time_left = 0.0
 var dash_cooldown_left = 0.0
@@ -25,8 +30,8 @@ enum PowerState { NORMAL, INVINCIBLE, FAST, INFDASH }
 var active_powerstate = PowerState.NORMAL
 
 func _process(delta: float) -> void:
-	if global_position.x < 0:
-		print("Game lost")
+	if global_position.x < 0 || health < 1:
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
 func _physics_process(delta: float) -> void:
 	
@@ -117,8 +122,8 @@ func update_state():
 	return
 	
 func on_player_laser_touch():
-	# Implement hurt cooldown and hurt animation
-	print("PLayer has been hit")
+	health -= 1
+	health_changed.emit(health)
 
 func update_animation():
 	match active_state:
