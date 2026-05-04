@@ -132,6 +132,7 @@ func on_player_laser_touch():
 
 func heal():
 	health += 1
+	health = clamp(health, 0, MAX_HEALTH)
 	health_changed.emit(health)
 
 func invincibility():

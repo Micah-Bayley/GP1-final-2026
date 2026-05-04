@@ -334,3 +334,8 @@ initial_velocity_max = 384.92
 scale_amount_min = 4.0
 scale_amount_max = 4.0
 color = Color(1, 1, 0.36862746, 1)
+
+[node name="InvincibilityTimer" type="Timer" parent="." unique_id=782135462]
+wait_time = 5.0
+
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
