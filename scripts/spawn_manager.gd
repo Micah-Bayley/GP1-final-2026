@@ -38,6 +38,10 @@ func spawn_terrain():
 		data.allowed_lanes = [0]
 
 	var instance = data.scene.instantiate()
+	
+	var player = get_tree().get_first_node_in_group("Player")
+	if player and instance.has_signal("laser_touch"):
+		instance.laser_touch.connect(player.on_player_laser_touch)
 
 	var lane_index = data.allowed_lanes.pick_random()
 	if lane_index == _last_lane and data.allowed_lanes.size() > 1:

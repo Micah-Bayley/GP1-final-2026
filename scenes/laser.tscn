@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://byikyc70sdkc2" path="res://assets/background/WhiteSquare.png" id="1_xmihv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7dhc"]
-size = Vector2(124, 128)
+size = Vector2(94.42739, 125.23854)
 
-[node name="Laser" type="Area2D" unique_id=1467228867]
+[node name="Laser" type="Area2D" unique_id=1467228867 groups=["Lasers"]]
 scale = Vector2(0.19025339, 1.60106)
 script = ExtResource("1_a7dhc")
 
@@ -16,7 +16,7 @@ texture = ExtResource("1_xmihv")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=992830045]
-position = Vector2(63.165413, 64.17173)
+position = Vector2(63.16542, 64.17173)
 scale = Vector2(1, 0.99999994)
 shape = SubResource("RectangleShape2D_a7dhc")
 

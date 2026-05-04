@@ -115,6 +115,10 @@ func update_state():
 	
 	active_state = State.IDLE
 	return
+	
+func on_player_laser_touch():
+	# Implement hurt cooldown and hurt animation
+	print("PLayer has been hit")
 
 func update_animation():
 	match active_state:

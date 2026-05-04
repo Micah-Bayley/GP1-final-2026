@@ -1,5 +1,7 @@
 extends Node2D
 
+signal laser_touch
+
 # Despawn when this far left of origin (adjust to your screen width)
 @export var despawn_x := -800.0
 
@@ -14,4 +16,5 @@ func _process(delta):
 		queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	print("Player hurt")
+	if body.is_in_group("Player"):
+		emit_signal("laser_touch")

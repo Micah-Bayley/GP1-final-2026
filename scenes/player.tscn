@@ -300,7 +300,7 @@ _data = {
 &"running": SubResource("Animation_qhqgy")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=1506782077]
+[node name="Player" type="CharacterBody2D" unique_id=1506782077 groups=["Player"]]
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1868995522]
@@ -317,3 +317,5 @@ shape = SubResource("RectangleShape2D_g2els")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=900868354]
 libraries/ = SubResource("AnimationLibrary_qhqgy")
 autoplay = &"RESET"
+
+[node name="HurtCooldown" type="Timer" parent="." unique_id=1886594548]
