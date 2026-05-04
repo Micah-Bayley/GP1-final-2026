@@ -3,14 +3,14 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const MAX_JUMPS = 2
-const MAX_AIR_DASHES = 3
+const MAX_AIR_DASHES = 10000
 
 var jumps_left = MAX_JUMPS
 var air_dashes_left = MAX_AIR_DASHES
 
 @export var dash_speed = 800.0
 @export var dash_duration = 0.15
-@export var dash_cooldown = 0.5
+@export var dash_cooldown = 0.2
 
 var dash_time_left = 0.0
 var dash_cooldown_left = 0.0
@@ -82,6 +82,12 @@ func handle_dash_check():
 func start_dash():
 	var mouse_pos = get_global_mouse_position()
 	dash_direction = (mouse_pos - global_position).normalized()
+	
+	
+	if dash_direction.x > 0 :
+		$Sprite2D.scale.x = 1
+	else:
+		$Sprite2D.scale.x = -1
 	
 	dash_time_left = dash_duration
 	dash_cooldown_left = dash_cooldown
