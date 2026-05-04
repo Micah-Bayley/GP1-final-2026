@@ -24,7 +24,6 @@ var dash_direction = Vector2.ZERO
 
 var is_dying = false
 var is_invincible = false
-
 enum State { IDLE, RUNNING, JUMPING, FALLING, DASHING, DYING, ATTACKING }
 var active_state = State.IDLE
 
@@ -32,7 +31,7 @@ enum PowerState { NORMAL, INVINCIBLE, FAST, INFDASH }
 var active_powerstate = PowerState.NORMAL
 
 func _process(delta: float) -> void:
-	if global_position.x < 0 || health < 1:
+	if global_position.x < -5 || health < 1:
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
 func _physics_process(delta: float) -> void:
