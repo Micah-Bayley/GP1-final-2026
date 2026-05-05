@@ -59,7 +59,11 @@ func _physics_process(delta: float) -> void:
 	#if dashing
 	dash_time_left -= delta
 	if dash_time_left > 0:
-		velocity = dash_direction * dash_speed
+		if dash_direction.x > 0:
+			velocity = dash_direction * dash_speed
+		else:
+			velocity.x = dash_direction.x * (dash_speed + spawner.scroll_speed)
+			velocity.y = dash_direction.y * dash_speed
 	else:
 		if dash_time_left + delta > 0:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
