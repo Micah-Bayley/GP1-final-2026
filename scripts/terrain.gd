@@ -8,7 +8,6 @@ signal laser_touch
 var _speed := 300.0
 
 func set_scroll_speed(s: float):
-	print(s)
 	_speed = s
 
 func _process(delta):

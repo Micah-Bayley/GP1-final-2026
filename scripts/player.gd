@@ -44,6 +44,9 @@ func _process(delta: float) -> void:
 		score_label.text = "Distance: " + str(int(round(distance_meters))) + "m"
 	else:
 		print("Please connect the spawner and the score label to the player script")
+		
+	if active_state == State.IDLE:
+		position.x -= spawner.scroll_speed * delta
 
 func _physics_process(delta: float) -> void:
 	
@@ -54,10 +57,12 @@ func _physics_process(delta: float) -> void:
 		dash_cooldown_left -= delta
 	
 	#if dashing
-	if dash_time_left >0:
-		dash_time_left -= delta
+	dash_time_left -= delta
+	if dash_time_left > 0:
 		velocity = dash_direction * dash_speed
 	else:
+		if dash_time_left + delta > 0:
+			velocity.y = move_toward(velocity.y, 0, SPEED)
 		handle_jump()
 		handle_movement()
 		handle_dash_check()

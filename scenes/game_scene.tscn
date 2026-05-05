@@ -146,7 +146,7 @@ texture = ExtResource("4_kk2rg")
 centered = false
 
 [node name="Player" parent="." unique_id=1506782077 node_paths=PackedStringArray("spawner", "score_label") instance=ExtResource("6_rgj8m")]
-position = Vector2(65, 534)
+position = Vector2(197, 531)
 scale = Vector2(3, 3)
 spawner = NodePath("../Spawner")
 score_label = NodePath("../CanvasLayer/MarginContainer2/Score")
@@ -172,6 +172,7 @@ autostart = true
 script = ExtResource("7_kk2rg")
 terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_utbpp"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4")])
 lanes = [507.0, 100.0, -100.0, -300.0]
+scroll_speed = 400.0
 min_gap = 200.0
 max_gap = 400.0
 
