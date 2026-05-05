@@ -358,4 +358,12 @@ color = Color(1, 0.23529412, 1, 0.8352941)
 [node name="InvincibilityTimer" type="Timer" parent="." unique_id=782135462]
 wait_time = 5.0
 
+[node name="InfDashTimer" type="Timer" parent="." unique_id=1297393447]
+wait_time = 9.0
+
+[node name="FastTimer" type="Timer" parent="." unique_id=910970562]
+wait_time = 9.0
+
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
+[connection signal="timeout" from="InfDashTimer" to="." method="_on_inf_dash_timer_timeout"]
+[connection signal="timeout" from="FastTimer" to="." method="_on_fast_timer_timeout"]

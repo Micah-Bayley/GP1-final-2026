@@ -23,6 +23,8 @@ const PIXELS_PER_METER := 64.0
 @export var spawner : Node2D
 @export var score_label : Label
 
+@export var fast_powerup_speed_increase = 350.0
+
 var dash_time_left = 0.0
 var dash_cooldown_left = 0.0
 var dash_direction = Vector2.ZERO
@@ -59,7 +61,10 @@ func _physics_process(delta: float) -> void:
 	#if dashing
 	dash_time_left -= delta
 	if dash_time_left > 0:
-		velocity = dash_direction * dash_speed
+		if active_powerstate == PowerState.FAST:
+			velocity = dash_direction * (dash_speed + fast_powerup_speed_increase)
+		else:
+			velocity = dash_direction * dash_speed
 	else:
 		if dash_time_left + delta > 0:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
@@ -70,6 +75,8 @@ func _physics_process(delta: float) -> void:
 	update_state()
 	update_animation()
 	move_and_slide()
+	
+	powerup_debug()
 
 func handle_landing_mechanics(delta):
 	if not is_on_floor():
@@ -94,7 +101,10 @@ func handle_movement():
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		if direction > 0:
-			velocity.x = direction * SPEED
+			if active_powerstate == PowerState.FAST:
+				velocity.x = (direction * SPEED) + fast_powerup_speed_increase
+			else:
+				velocity.x = direction * SPEED
 		else:
 			velocity.x = direction * (SPEED + spawner.scroll_speed)
 		$Sprite2D.scale.x = direction
@@ -105,7 +115,15 @@ func handle_movement():
 func handle_dash_check():
 	if Input.is_action_just_pressed("LMB") and dash_cooldown_left <= 0 and air_dashes_left > 0:
 		start_dash()
+		if active_powerstate == PowerState.INFDASH:
+			return
 		air_dashes_left -= 1
+
+func powerup_debug():
+	if Input.is_action_just_pressed("ui_left"):
+		inf_dash()
+	if Input.is_action_just_pressed("ui_right"):
+		fast()
 
 
 func start_dash():
@@ -164,6 +182,16 @@ func invincibility():
 	$InvincibilityTimer.start()
 	modulate = Color.AQUAMARINE
 
+func inf_dash():
+	active_powerstate = PowerState.INFDASH
+	$InfDashTimer.start()
+	modulate = Color.PURPLE
+
+func fast():
+	active_powerstate = PowerState.FAST
+	$FastTimer.start()
+	modulate = Color.YELLOW
+
 func add_dash():
 	air_dashes += 1
 	air_dashes = clamp(air_dashes, 0, MAX_AIR_DASHES)
@@ -189,3 +217,21 @@ func update_animation():
 func _on_invincibility_timer_timeout() -> void:
 	is_invincible = false
 	modulate = Color.WHITE
+
+
+func _on_inf_dash_timer_timeout() -> void:
+	
+	# fail-safe incase player grabs a different power-up before
+	# previous timer runs out.
+	if active_powerstate == PowerState.INFDASH:
+		active_powerstate = PowerState.NORMAL
+		modulate = Color.WHITE
+
+
+func _on_fast_timer_timeout() -> void:
+	
+	# fail-safe incase player grabs a different power-up before
+	# previous timer runs out.
+	if active_powerstate == PowerState.FAST:
+		active_powerstate = PowerState.NORMAL
+		modulate = Color.WHITE
