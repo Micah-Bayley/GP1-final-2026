@@ -38,13 +38,13 @@ var active_powerstate = PowerState.NORMAL
 func _process(delta: float) -> void:
 	if global_position.x < -5 || health < 1:
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
-		
 	if spawner and score_label:
 		distance_meters += (spawner.scroll_speed * delta) / PIXELS_PER_METER
 		score_label.text = "Distance: " + str(int(round(distance_meters))) + "m"
 	else:
 		print("Please connect the spawner and the score label to the player script")
-
+	if not active_state == State.DASHING:
+		$Sprite2D.scale.x = 1
 func _physics_process(delta: float) -> void:
 	
 	handle_landing_mechanics(delta)
@@ -85,7 +85,6 @@ func handle_movement():
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
-		$Sprite2D.scale.x = direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -118,8 +117,8 @@ func update_state():
 		active_state = State.DASHING
 		return
 	
-	if abs(velocity.x) > 0.05 and is_on_floor():
-		active_state = State.RUNNING
+	if velocity.x < -0.05 and is_on_floor():
+		active_state = State.IDLE
 		return
 		
 	if not is_on_floor():
@@ -130,7 +129,7 @@ func update_state():
 			active_state = State.FALLING
 			return
 	
-	active_state = State.IDLE
+	active_state = State.RUNNING
 	return
 	
 func on_player_laser_touch():
