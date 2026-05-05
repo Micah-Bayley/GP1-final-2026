@@ -82,6 +82,10 @@ func handle_landing_mechanics(delta):
 
 func handle_jump():
 	if Input.is_action_just_pressed("jump") and jumps_left >= 1:
+		
+		#particle if air-jump
+		if not is_on_floor():
+			$DoubleJumpCloud.restart()
 		velocity.y = JUMP_VELOCITY
 		jumps_left -= 1
 
