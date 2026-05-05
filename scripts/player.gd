@@ -13,7 +13,7 @@ var jumps_left = MAX_JUMPS
 var air_dashes_left = air_dashes
 
 var distance_meters := 0.0
-const PIXELS_PER_METER := 64.0
+const PIXELS_PER_METER := 32.0
 
 @export var health = MAX_HEALTH
 

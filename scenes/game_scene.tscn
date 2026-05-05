@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ds4mlnsi1dxem" path="res://assets/background/rocky-nowater-close.png" id="4_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="6_rgj8m"]
 [ext_resource type="Script" uid="uid://yqsmkbqn1h6s" path="res://scripts/spawn_manager.gd" id="7_kk2rg"]
-[ext_resource type="Script" uid="uid://brbgkwbcfvo7p" path="res://scripts/terrain_data.gd" id="8_b5spy"]
+[ext_resource type="Script" path="res://scripts/terrain_data.gd" id="8_b5spy"]
 [ext_resource type="PackedScene" uid="uid://crkfeetak1wn0" path="res://scenes/terrain/ground_mid.tscn" id="9_utbpp"]
 [ext_resource type="PackedScene" uid="uid://ckpk2nraeh6pc" path="res://scenes/terrain/ground_short.tscn" id="10_mw25s"]
 [ext_resource type="PackedScene" uid="uid://6u1lfokfmi0" path="res://scenes/terrain/ground_tall.tscn" id="11_tcjrq"]
@@ -46,6 +46,44 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
+[sub_resource type="Resource" id="Resource_mwyo0"]
+script = ExtResource("8_b5spy")
+scene = ExtResource("9_utbpp")
+y_offset = -18.0
+
+[sub_resource type="Resource" id="Resource_tcjrq"]
+script = ExtResource("8_b5spy")
+scene = ExtResource("10_mw25s")
+y_offset = 80.0
+
+[sub_resource type="Resource" id="Resource_rvs2r"]
+script = ExtResource("8_b5spy")
+scene = ExtResource("11_tcjrq")
+y_offset = -50.0
+
+[sub_resource type="Resource" id="Resource_tqxxy"]
+script = ExtResource("8_b5spy")
+scene = ExtResource("12_rvs2r")
+random_rotation = 90.0
+
+[sub_resource type="Resource" id="Resource_5ay1a"]
+script = ExtResource("8_b5spy")
+scene = ExtResource("12_rvs2r")
+allowed_lanes = Array[int]([1, 2])
+y_offset = 300.0
+
+[sub_resource type="Resource" id="Resource_ldkr4"]
+script = ExtResource("8_b5spy")
+scene = ExtResource("11_tcjrq")
+allowed_lanes = Array[int]([2])
+y_offset = 100.0
+
+[sub_resource type="Resource" id="Resource_liy57"]
+script = ExtResource("8_b5spy")
+scene = ExtResource("13_5ay1a")
+weight = 0.3
+y_offset = -18.0
+
 [sub_resource type="Curve" id="Curve_tqxxy"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -53,51 +91,6 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_5ay1a"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(0.96602327, 0.78334737, 0.6248349, 0.9764706)
-
-[sub_resource type="Resource" id="Resource_mwyo0"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("9_utbpp")
-y_offset = -18.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_tcjrq"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("10_mw25s")
-y_offset = 80.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_rvs2r"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("11_tcjrq")
-y_offset = -50.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_tqxxy"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("12_rvs2r")
-random_rotation = 90.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_5ay1a"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("12_rvs2r")
-allowed_lanes = Array[int]([1, 2])
-y_offset = 300.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_ldkr4"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("11_tcjrq")
-allowed_lanes = Array[int]([2])
-y_offset = 100.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_liy57"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("13_5ay1a")
-weight = 0.3
-y_offset = -18.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
 
 [node name="GameScene" type="Node2D" unique_id=869946366]
 
@@ -208,6 +201,17 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 33
 text = "Distance: 0m"
 
+[node name="Spawner" type="Node2D" parent="." unique_id=1627623242]
+script = ExtResource("7_kk2rg")
+terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_mwyo0"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4"), SubResource("Resource_liy57")])
+lanes = [507.0, 100.0, -100.0, -300.0]
+scroll_speed = 400.0
+min_gap = 200.0
+max_gap = 400.0
+
+[node name="SpawnPoint" type="Node2D" parent="Spawner" unique_id=1356806767]
+position = Vector2(1188, 652)
+
 [node name="SandStorm" type="CPUParticles2D" parent="." unique_id=1915215694]
 position = Vector2(-6, 189)
 amount = 2000
@@ -224,16 +228,5 @@ scale_amount_max = 50.0
 scale_amount_curve = SubResource("Curve_tqxxy")
 color = Color(0.9764706, 0.84313726, 0.7294118, 0.26666668)
 color_ramp = SubResource("Gradient_5ay1a")
-
-[node name="Spawner" type="Node2D" parent="." unique_id=1627623242]
-script = ExtResource("7_kk2rg")
-terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_mwyo0"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4"), SubResource("Resource_liy57")])
-lanes = [507.0, 100.0, -100.0, -300.0]
-scroll_speed = 400.0
-min_gap = 200.0
-max_gap = 400.0
-
-[node name="SpawnPoint" type="Node2D" parent="Spawner" unique_id=1356806767]
-position = Vector2(1188, 652)
 
 [connection signal="timeout" from="Timer" to="Spawner" method="_on_timer_timeout"]
