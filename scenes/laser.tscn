@@ -1,7 +1,50 @@
 [gd_scene format=3 uid="uid://c0ycoi1xehxi1"]
 
 [ext_resource type="Script" uid="uid://30lcabhtabum" path="res://scripts/terrain.gd" id="1_a7dhc"]
-[ext_resource type="Texture2D" uid="uid://byikyc70sdkc2" path="res://assets/background/WhiteSquare.png" id="1_xmihv"]
+[ext_resource type="Texture2D" uid="uid://c517h5pborcg5" path="res://assets/lazerspritesheet.png" id="3_jjj73"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_412cd"]
+atlas = ExtResource("3_jjj73")
+region = Rect2(0, 0, 25, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8rul"]
+atlas = ExtResource("3_jjj73")
+region = Rect2(25, 0, 25, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_788yo"]
+atlas = ExtResource("3_jjj73")
+region = Rect2(50, 0, 25, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dakmh"]
+atlas = ExtResource("3_jjj73")
+region = Rect2(75, 0, 25, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjiwp"]
+atlas = ExtResource("3_jjj73")
+region = Rect2(100, 0, 25, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iuany"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_412cd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8rul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_788yo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dakmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjiwp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7dhc"]
 size = Vector2(94.42739, 125.23854)
@@ -10,10 +53,13 @@ size = Vector2(94.42739, 125.23854)
 scale = Vector2(0.19025339, 1.60106)
 script = ExtResource("1_a7dhc")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=373509821]
-modulate = Color(0.84313726, 1, 0, 1)
-texture = ExtResource("1_xmihv")
-centered = false
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=796810424]
+texture_filter = 1
+position = Vector2(60.445705, 64.64468)
+scale = Vector2(9.461067, 1.3053851)
+sprite_frames = SubResource("SpriteFrames_iuany")
+autoplay = "default"
+frame_progress = 0.62154454
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=992830045]
 position = Vector2(63.16542, 64.17173)

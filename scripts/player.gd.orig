@@ -61,16 +61,18 @@ func _physics_process(delta: float) -> void:
 	#if dashing
 	dash_time_left -= delta
 	if dash_time_left > 0:
+<<<<<<< HEAD
 		if dash_direction.x > 0:
 			velocity = dash_direction * dash_speed
 		else:
 			velocity.x = dash_direction.x * (dash_speed + spawner.scroll_speed)
 			velocity.y = dash_direction.y * dash_speed
-		
+=======
 		if active_powerstate == PowerState.FAST:
 			velocity = dash_direction * (dash_speed + fast_powerup_speed_increase)
 		else:
 			velocity = dash_direction * dash_speed
+>>>>>>> feature/playernuances
 	else:
 		if dash_time_left + delta > 0:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
