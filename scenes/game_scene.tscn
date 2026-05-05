@@ -54,7 +54,7 @@ point_count = 2
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(0.96602327, 0.78334737, 0.6248349, 0.9764706)
 
-[sub_resource type="Resource" id="Resource_utbpp"]
+[sub_resource type="Resource" id="Resource_mwyo0"]
 script = ExtResource("8_b5spy")
 scene = ExtResource("9_utbpp")
 y_offset = -18.0
@@ -227,7 +227,7 @@ color_ramp = SubResource("Gradient_5ay1a")
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1627623242]
 script = ExtResource("7_kk2rg")
-terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_utbpp"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4"), SubResource("Resource_liy57")])
+terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_mwyo0"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4"), SubResource("Resource_liy57")])
 lanes = [507.0, 100.0, -100.0, -300.0]
 scroll_speed = 400.0
 min_gap = 200.0
