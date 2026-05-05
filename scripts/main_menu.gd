@@ -95,3 +95,8 @@ func _on_exit_pressed() -> void:
 	is_exiting = true
 	await $CanvasLayer/ClickSFX.finished
 	get_tree().quit()
+
+
+func _on_tutorial_pressed() -> void:
+	$CanvasLayer/ClickSFX.play(0.01)
+	get_tree().change_scene_to_file("res://scenes/tutorial.tscn")

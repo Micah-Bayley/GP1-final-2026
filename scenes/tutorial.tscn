@@ -1,19 +1,19 @@
-[gd_scene format=3 uid="uid://ocdpd482iv1r"]
+[gd_scene format=3 uid="uid://n76bu2hkxrd7"]
 
-[ext_resource type="Texture2D" uid="uid://c20ieeuvrp6na" path="res://assets/background/rocky-far-mountains.png" id="1_bw6k5"]
-[ext_resource type="Texture2D" uid="uid://byikyc70sdkc2" path="res://assets/background/WhiteSquare.png" id="1_y3j0m"]
-[ext_resource type="Texture2D" uid="uid://ypngqa0wghuo" path="res://assets/background/rocky-nowater-far.png" id="2_y3j0m"]
-[ext_resource type="Texture2D" uid="uid://qvmfyp55fyek" path="res://assets/background/rocky-nowater-mid.png" id="3_rurhu"]
-[ext_resource type="Texture2D" uid="uid://ds4mlnsi1dxem" path="res://assets/background/rocky-nowater-close.png" id="4_kk2rg"]
-[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="6_rgj8m"]
-[ext_resource type="Script" uid="uid://yqsmkbqn1h6s" path="res://scripts/spawn_manager.gd" id="7_kk2rg"]
-[ext_resource type="Script" uid="uid://brbgkwbcfvo7p" path="res://scripts/terrain_data.gd" id="8_b5spy"]
-[ext_resource type="PackedScene" uid="uid://crkfeetak1wn0" path="res://scenes/terrain/ground_mid.tscn" id="9_utbpp"]
-[ext_resource type="PackedScene" uid="uid://ckpk2nraeh6pc" path="res://scenes/terrain/ground_short.tscn" id="10_mw25s"]
-[ext_resource type="PackedScene" uid="uid://6u1lfokfmi0" path="res://scenes/terrain/ground_tall.tscn" id="11_tcjrq"]
-[ext_resource type="PackedScene" uid="uid://c0ycoi1xehxi1" path="res://scenes/laser.tscn" id="12_rvs2r"]
-[ext_resource type="PackedScene" uid="uid://dnyg8us5sygj" path="res://scenes/terrain/ground_mid_pickup.tscn" id="13_5ay1a"]
-[ext_resource type="Script" path="res://scenes/health_bar.gd" id="13_tqxxy"]
+[ext_resource type="Texture2D" uid="uid://byikyc70sdkc2" path="res://assets/background/WhiteSquare.png" id="1_0hilk"]
+[ext_resource type="Texture2D" uid="uid://c20ieeuvrp6na" path="res://assets/background/rocky-far-mountains.png" id="2_wr8iv"]
+[ext_resource type="Texture2D" uid="uid://ypngqa0wghuo" path="res://assets/background/rocky-nowater-far.png" id="3_e13mp"]
+[ext_resource type="Texture2D" uid="uid://qvmfyp55fyek" path="res://assets/background/rocky-nowater-mid.png" id="4_vrdqu"]
+[ext_resource type="Texture2D" uid="uid://ds4mlnsi1dxem" path="res://assets/background/rocky-nowater-close.png" id="5_cmspm"]
+[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="6_ikfo1"]
+[ext_resource type="Script" path="res://scenes/health_bar.gd" id="7_dwom6"]
+[ext_resource type="Script" uid="uid://yqsmkbqn1h6s" path="res://scripts/spawn_manager.gd" id="8_bl2xa"]
+[ext_resource type="Script" uid="uid://brbgkwbcfvo7p" path="res://scripts/terrain_data.gd" id="9_15kfc"]
+[ext_resource type="PackedScene" uid="uid://crkfeetak1wn0" path="res://scenes/terrain/ground_mid.tscn" id="10_7a100"]
+[ext_resource type="PackedScene" uid="uid://ckpk2nraeh6pc" path="res://scenes/terrain/ground_short.tscn" id="11_feaue"]
+[ext_resource type="PackedScene" uid="uid://6u1lfokfmi0" path="res://scenes/terrain/ground_tall.tscn" id="12_210s6"]
+[ext_resource type="PackedScene" uid="uid://c0ycoi1xehxi1" path="res://scenes/laser.tscn" id="13_5qvs7"]
+[ext_resource type="PackedScene" uid="uid://dnyg8us5sygj" path="res://scenes/terrain/ground_mid_pickup.tscn" id="14_qbchm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgj8m"]
 
@@ -46,44 +46,6 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
-[sub_resource type="Resource" id="Resource_mwyo0"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("9_utbpp")
-y_offset = -18.0
-
-[sub_resource type="Resource" id="Resource_tcjrq"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("10_mw25s")
-y_offset = 80.0
-
-[sub_resource type="Resource" id="Resource_rvs2r"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("11_tcjrq")
-y_offset = -50.0
-
-[sub_resource type="Resource" id="Resource_tqxxy"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("12_rvs2r")
-random_rotation = 90.0
-
-[sub_resource type="Resource" id="Resource_5ay1a"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("12_rvs2r")
-allowed_lanes = Array[int]([1, 2])
-y_offset = 300.0
-
-[sub_resource type="Resource" id="Resource_ldkr4"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("11_tcjrq")
-allowed_lanes = Array[int]([2])
-y_offset = 100.0
-
-[sub_resource type="Resource" id="Resource_liy57"]
-script = ExtResource("8_b5spy")
-scene = ExtResource("13_5ay1a")
-weight = 0.3
-y_offset = -18.0
-
 [sub_resource type="Curve" id="Curve_tqxxy"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -91,6 +53,51 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_5ay1a"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(0.96602327, 0.78334737, 0.6248349, 0.9764706)
+
+[sub_resource type="Resource" id="Resource_mwyo0"]
+script = ExtResource("9_15kfc")
+scene = ExtResource("10_7a100")
+y_offset = -18.0
+metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
+
+[sub_resource type="Resource" id="Resource_tcjrq"]
+script = ExtResource("9_15kfc")
+scene = ExtResource("11_feaue")
+y_offset = 80.0
+metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
+
+[sub_resource type="Resource" id="Resource_rvs2r"]
+script = ExtResource("9_15kfc")
+scene = ExtResource("12_210s6")
+y_offset = -50.0
+metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
+
+[sub_resource type="Resource" id="Resource_tqxxy"]
+script = ExtResource("9_15kfc")
+scene = ExtResource("13_5qvs7")
+random_rotation = 90.0
+metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
+
+[sub_resource type="Resource" id="Resource_5ay1a"]
+script = ExtResource("9_15kfc")
+scene = ExtResource("13_5qvs7")
+allowed_lanes = Array[int]([1, 2])
+y_offset = 300.0
+metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
+
+[sub_resource type="Resource" id="Resource_ldkr4"]
+script = ExtResource("9_15kfc")
+scene = ExtResource("12_210s6")
+allowed_lanes = Array[int]([2])
+y_offset = 100.0
+metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
+
+[sub_resource type="Resource" id="Resource_liy57"]
+script = ExtResource("9_15kfc")
+scene = ExtResource("14_qbchm")
+weight = 0.3
+y_offset = -18.0
+metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
 
 [node name="GameScene" type="Node2D" unique_id=869946366]
 
@@ -101,7 +108,7 @@ position = Vector2(4, -134)
 modulate = Color(1.92523e-06, 0.57480556, 0.5763835, 1)
 position = Vector2(652.99994, 531.99994)
 scale = Vector2(18.747967, 10.171875)
-texture = ExtResource("1_y3j0m")
+texture = ExtResource("1_0hilk")
 
 [node name="Mountains_01" type="Parallax2D" parent="ParallaxBackground" unique_id=614351444]
 scroll_scale = Vector2(0.2, 0.2)
@@ -111,7 +118,7 @@ autoscroll = Vector2(-50, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains_01" unique_id=686976105]
-texture = ExtResource("1_bw6k5")
+texture = ExtResource("2_wr8iv")
 centered = false
 
 [node name="Mountains_02" type="Parallax2D" parent="ParallaxBackground" unique_id=525500763]
@@ -122,7 +129,7 @@ autoscroll = Vector2(-160, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains_02" unique_id=1825414664]
-texture = ExtResource("2_y3j0m")
+texture = ExtResource("3_e13mp")
 centered = false
 
 [node name="Mountains_03" type="Parallax2D" parent="ParallaxBackground" unique_id=2051011129]
@@ -133,7 +140,7 @@ autoscroll = Vector2(-300, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains_03" unique_id=1777809423]
-texture = ExtResource("3_rurhu")
+texture = ExtResource("4_vrdqu")
 centered = false
 
 [node name="Mountains_04" type="Parallax2D" parent="ParallaxBackground" unique_id=1797999639]
@@ -143,10 +150,10 @@ autoscroll = Vector2(-600, 0)
 repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains_04" unique_id=1823919137]
-texture = ExtResource("4_kk2rg")
+texture = ExtResource("5_cmspm")
 centered = false
 
-[node name="Player" parent="." unique_id=1506782077 node_paths=PackedStringArray("spawner", "score_label") instance=ExtResource("6_rgj8m")]
+[node name="Player" parent="." unique_id=1506782077 node_paths=PackedStringArray("spawner", "score_label") instance=ExtResource("6_ikfo1")]
 position = Vector2(197, 531)
 scale = Vector2(3, 3)
 spawner = NodePath("../Spawner")
@@ -184,7 +191,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_5ay1a")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ldkr4")
 value = 50.0
 show_percentage = false
-script = ExtResource("13_tqxxy")
+script = ExtResource("7_dwom6")
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer" unique_id=1307336392]
 anchors_preset = 1
@@ -201,19 +208,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 33
 text = "Distance: 0m"
 
-[node name="Spawner" type="Node2D" parent="." unique_id=1627623242]
-script = ExtResource("7_kk2rg")
-terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_mwyo0"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4"), SubResource("Resource_liy57")])
-lanes = [507.0, 100.0, -100.0, -300.0]
-scroll_speed = 400.0
-min_gap = 200.0
-max_gap = 400.0
-
-[node name="SpawnPoint" type="Node2D" parent="Spawner" unique_id=1356806767]
-position = Vector2(1188, 652)
-
 [node name="SandStorm" type="CPUParticles2D" parent="." unique_id=1915215694]
-visibility_layer = 524288
+visibility_layer = 524289
 position = Vector2(-6, 189)
 amount = 2000
 preprocess = 2.12
@@ -229,5 +225,16 @@ scale_amount_max = 50.0
 scale_amount_curve = SubResource("Curve_tqxxy")
 color = Color(0.9764706, 0.84313726, 0.7294118, 0.26666668)
 color_ramp = SubResource("Gradient_5ay1a")
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1627623242]
+script = ExtResource("8_bl2xa")
+terrain_types = Array[ExtResource("9_15kfc")]([SubResource("Resource_mwyo0"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4"), SubResource("Resource_liy57")])
+lanes = [507.0, 100.0, -100.0, -300.0]
+scroll_speed = 400.0
+min_gap = 200.0
+max_gap = 400.0
+
+[node name="SpawnPoint" type="Node2D" parent="Spawner" unique_id=1356806767]
+position = Vector2(1188, 652)
 
 [connection signal="timeout" from="Timer" to="Spawner" method="_on_timer_timeout"]

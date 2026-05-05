@@ -212,6 +212,12 @@ size_flags_vertical = 3
 theme = ExtResource("3_opfnp")
 text = "PLAY"
 
+[node name="Tutorial" type="Button" parent="CanvasLayer/Main/VBoxContainer" unique_id=1128302283]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_opfnp")
+text = "TUTORIAL"
+
 [node name="Options" type="Button" parent="CanvasLayer/Main/VBoxContainer" unique_id=860513736]
 layout_mode = 2
 size_flags_vertical = 3
@@ -238,5 +244,6 @@ stream = SubResource("AudioStreamOggVorbis_qe12f")
 [connection signal="pressed" from="CanvasLayer/Options/VBoxContainer/DisplayBox/CheckBox" to="." method="_on_check_box_pressed"]
 [connection signal="pressed" from="CanvasLayer/Options/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Main/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="CanvasLayer/Main/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CanvasLayer/Main/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
