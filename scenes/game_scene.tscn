@@ -7,13 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://ds4mlnsi1dxem" path="res://assets/background/rocky-nowater-close.png" id="4_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="6_rgj8m"]
 [ext_resource type="Script" uid="uid://yqsmkbqn1h6s" path="res://scripts/spawn_manager.gd" id="7_kk2rg"]
-[ext_resource type="Script" uid="uid://brbgkwbcfvo7p" path="res://scripts/terrain_data.gd" id="8_b5spy"]
+[ext_resource type="Script" path="res://scripts/terrain_data.gd" id="8_b5spy"]
 [ext_resource type="PackedScene" uid="uid://crkfeetak1wn0" path="res://scenes/terrain/ground_mid.tscn" id="9_utbpp"]
 [ext_resource type="PackedScene" uid="uid://ckpk2nraeh6pc" path="res://scenes/terrain/ground_short.tscn" id="10_mw25s"]
 [ext_resource type="PackedScene" uid="uid://6u1lfokfmi0" path="res://scenes/terrain/ground_tall.tscn" id="11_tcjrq"]
 [ext_resource type="PackedScene" uid="uid://c0ycoi1xehxi1" path="res://scenes/laser.tscn" id="12_rvs2r"]
 [ext_resource type="PackedScene" uid="uid://dnyg8us5sygj" path="res://scenes/terrain/ground_mid_pickup.tscn" id="13_5ay1a"]
-[ext_resource type="Script" path="res://scenes/health_bar.gd" id="13_tqxxy"]
+[ext_resource type="Script" uid="uid://c36ipdximtvk2" path="res://scripts/health_bar.gd" id="13_tqxxy"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgj8m"]
 
@@ -91,6 +91,52 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_5ay1a"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(0.96602327, 0.78334737, 0.6248349, 0.9764706)
+
+[sub_resource type="GDScript" id="GDScript_5ay1a"]
+script/source = "extends Node2D
+
+@onready var spawner = $\"../Spawner\"
+
+
+func stop_all():
+	$Slow.emitting = false
+	$Slow.visible = false
+	$Medium.emitting = false
+	$Medium.visible = false
+	$Fast.emitting = false
+	$Fast.visible = false
+	$Sonic.emitting = false
+	$Sonic.visible = false
+
+
+func _on_timer_timeout() -> void:
+	if spawner.scroll_speed <= 251:
+		stop_all()
+		$Slow.emitting = true
+		$Slow.visible = true
+	elif spawner.scroll_speed <= 401:
+		stop_all()
+		$Medium.emitting = true
+		$Medium.visible = true
+	elif spawner.scroll_speed <= 601:
+		stop_all()
+		$Fast.emitting = true
+		$Fast.visible = true
+	else:
+		stop_all()
+		$Sonic.emitting = true
+		$Sonic.visible = true
+	$Timer.start()
+"
+
+[sub_resource type="Curve" id="Curve_5ay1a"]
+_limits = [0.0, 668.57, -195.29, 754.19]
+_data = [Vector2(158.75342, 12.164185), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_ldkr4"]
+_data = [Vector2(0.26694915, 0.41091657), 0.0, 0.0, 0, 0]
+point_count = 1
 
 [node name="GameScene" type="Node2D" unique_id=869946366]
 
@@ -205,7 +251,7 @@ text = "Distance: 0m"
 script = ExtResource("7_kk2rg")
 terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_mwyo0"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4"), SubResource("Resource_liy57")])
 lanes = [507.0, 100.0, -100.0, -300.0]
-scroll_speed = 400.0
+scroll_speed = 200.0
 min_gap = 200.0
 max_gap = 400.0
 
@@ -230,4 +276,91 @@ scale_amount_curve = SubResource("Curve_tqxxy")
 color = Color(0.9764706, 0.84313726, 0.7294118, 0.26666668)
 color_ramp = SubResource("Gradient_5ay1a")
 
+[node name="Wind" type="Node2D" parent="." unique_id=1349682278]
+script = SubResource("GDScript_5ay1a")
+
+[node name="Slow" type="CPUParticles2D" parent="Wind" unique_id=1879964041]
+position = Vector2(1153, 320)
+amount = 50
+lifetime = 3.0
+preprocess = 4.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+direction = Vector2(-100, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 600.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+split_scale = true
+scale_curve_x = SubResource("Curve_5ay1a")
+scale_curve_y = SubResource("Curve_ldkr4")
+color = Color(0.90588236, 0.62352943, 0.42745098, 0.65882355)
+
+[node name="Medium" type="CPUParticles2D" parent="Wind" unique_id=1506086589]
+position = Vector2(1153, 320)
+emitting = false
+amount = 100
+lifetime = 3.0
+preprocess = 4.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+direction = Vector2(-100, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 600.0
+initial_velocity_max = 900.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+split_scale = true
+scale_curve_x = SubResource("Curve_5ay1a")
+scale_curve_y = SubResource("Curve_ldkr4")
+color = Color(0.90588236, 0.62352943, 0.42745098, 0.65882355)
+
+[node name="Fast" type="CPUParticles2D" parent="Wind" unique_id=1948132947]
+position = Vector2(1153, 320)
+emitting = false
+amount = 250
+lifetime = 3.0
+preprocess = 4.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+direction = Vector2(-100, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 900.0
+initial_velocity_max = 1500.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+split_scale = true
+scale_curve_x = SubResource("Curve_5ay1a")
+scale_curve_y = SubResource("Curve_ldkr4")
+color = Color(0.90588236, 0.62352943, 0.42745098, 0.65882355)
+
+[node name="Sonic" type="CPUParticles2D" parent="Wind" unique_id=334139694]
+position = Vector2(1153, 320)
+emitting = false
+amount = 600
+lifetime = 3.0
+preprocess = 4.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 400)
+direction = Vector2(-100, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1500.0
+initial_velocity_max = 2500.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+split_scale = true
+scale_curve_x = SubResource("Curve_5ay1a")
+scale_curve_y = SubResource("Curve_ldkr4")
+color = Color(0.90588236, 0.62352943, 0.42745098, 0.65882355)
+
+[node name="Timer" type="Timer" parent="Wind" unique_id=2061322643]
+wait_time = 0.1
+autostart = true
+
 [connection signal="timeout" from="Timer" to="Spawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="Wind/Timer" to="Wind" method="_on_timer_timeout"]
