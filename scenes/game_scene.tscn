@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ocdpd482iv1r"]
 
 [ext_resource type="Texture2D" uid="uid://c20ieeuvrp6na" path="res://assets/background/rocky-far-mountains.png" id="1_bw6k5"]
+[ext_resource type="Script" uid="uid://bcf1jjagexhj" path="res://scripts/game_scene.gd" id="1_ldkr4"]
 [ext_resource type="Texture2D" uid="uid://byikyc70sdkc2" path="res://assets/background/WhiteSquare.png" id="1_y3j0m"]
 [ext_resource type="Texture2D" uid="uid://ypngqa0wghuo" path="res://assets/background/rocky-nowater-far.png" id="2_y3j0m"]
 [ext_resource type="Texture2D" uid="uid://qvmfyp55fyek" path="res://assets/background/rocky-nowater-mid.png" id="3_rurhu"]
@@ -13,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://6u1lfokfmi0" path="res://scenes/terrain/ground_tall.tscn" id="11_tcjrq"]
 [ext_resource type="PackedScene" uid="uid://c0ycoi1xehxi1" path="res://scenes/laser.tscn" id="12_rvs2r"]
 [ext_resource type="PackedScene" uid="uid://dnyg8us5sygj" path="res://scenes/terrain/ground_mid_pickup.tscn" id="13_5ay1a"]
-[ext_resource type="Script" uid="uid://c36ipdximtvk2" path="res://scripts/health_bar.gd" id="13_tqxxy"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="13_tqxxy"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgj8m"]
 
@@ -139,6 +140,7 @@ _data = [Vector2(0.26694915, 0.41091657), 0.0, 0.0, 0, 0]
 point_count = 1
 
 [node name="GameScene" type="Node2D" unique_id=869946366]
+script = ExtResource("1_ldkr4")
 
 [node name="ParallaxBackground" type="Node2D" parent="." unique_id=1612332402]
 position = Vector2(4, -134)
@@ -246,6 +248,24 @@ theme_override_constants/margin_right = 36
 layout_mode = 2
 theme_override_font_sizes/font_size = 33
 text = "Distance: 0m"
+
+[node name="CountdownContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1359122704]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Countdown" type="Label" parent="CanvasLayer/CountdownContainer" unique_id=865502884]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "3"
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1627623242]
 script = ExtResource("7_kk2rg")
