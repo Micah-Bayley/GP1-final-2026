@@ -3,6 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://b1276tcjivx81" path="res://assets/Staff Nomad/STAFF/Nomad3_Asset.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://wddgu6jaiy0m" path="res://scripts/player.gd" id="1_g2els"]
 
+[sub_resource type="Gradient" id="Gradient_g2els"]
+offsets = PackedFloat32Array(0.3533654, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qhqgy"]
+gradient = SubResource("Gradient_g2els")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8732639, 0.14409722)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(9, 33)
 
@@ -304,6 +314,28 @@ _data = {
 collision_layer = 3
 script = ExtResource("1_g2els")
 
+[node name="DoubleJumpCloud" type="CPUParticles2D" parent="." unique_id=429352043]
+position = Vector2(0, 21)
+emitting = false
+amount = 20
+texture = SubResource("GradientTexture2D_qhqgy")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(7, 1)
+particle_flag_align_y = true
+direction = Vector2(0, 1)
+spread = 90.0
+gravity = Vector2(0, 5)
+initial_velocity_min = 30.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.25
+scale_amount_max = 0.25
+color = Color(0.9999998, 0.966775, 0.84213895, 1)
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1868995522]
 texture_filter = 1
 texture = ExtResource("1_3vyb7")
@@ -335,26 +367,6 @@ initial_velocity_max = 384.92
 scale_amount_min = 4.0
 scale_amount_max = 4.0
 color = Color(1, 1, 0.36862746, 1)
-
-[node name="DoubleJumpCloud" type="CPUParticles2D" parent="." unique_id=429352043]
-position = Vector2(1, 25)
-emitting = false
-amount = 20
-lifetime = 0.8
-one_shot = true
-explosiveness = 1.0
-randomness = 1.0
-lifetime_randomness = 1.0
-emission_shape = 3
-emission_rect_extents = Vector2(10, 1)
-particle_flag_align_y = true
-spread = 180.0
-gravity = Vector2(0, 5)
-initial_velocity_min = 4.0
-initial_velocity_max = 15.0
-scale_amount_min = 3.0
-scale_amount_max = 3.0
-color = Color(1, 0.23529412, 1, 0.8352941)
 
 [node name="InvincibilityTimer" type="Timer" parent="." unique_id=782135462]
 wait_time = 5.0

@@ -100,6 +100,9 @@ func handle_jump():
 		if not is_on_floor():
 			$DoubleJumpCloud.restart()
 		velocity.y = JUMP_VELOCITY
+		if not is_on_floor():
+			jumps_left -= 2
+			return
 		jumps_left -= 1
 
 
