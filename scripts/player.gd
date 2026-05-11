@@ -103,13 +103,15 @@ func handle_jump():
 		#particle if air-jump
 		if not is_on_floor():
 			$DoubleJumpCloud.restart()
+		
+		$soundEffects/jump.play()
 		velocity.y = JUMP_VELOCITY
 		if not is_on_floor():
 			jumps_left -= 2
 			return
 		jumps_left -= 1
 		
-		$soundEffects/jump.play()
+		
 
 
 func handle_movement():
