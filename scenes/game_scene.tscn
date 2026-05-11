@@ -8,13 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://ds4mlnsi1dxem" path="res://assets/background/rocky-nowater-close.png" id="4_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="6_rgj8m"]
 [ext_resource type="Script" uid="uid://yqsmkbqn1h6s" path="res://scripts/spawn_manager.gd" id="7_kk2rg"]
-[ext_resource type="Script" path="res://scripts/terrain_data.gd" id="8_b5spy"]
+[ext_resource type="Script" uid="uid://brbgkwbcfvo7p" path="res://scripts/terrain_data.gd" id="8_b5spy"]
+[ext_resource type="Script" uid="uid://c5smcgn7pe265" path="res://scripts/dashabar.gd" id="9_liy57"]
 [ext_resource type="PackedScene" uid="uid://crkfeetak1wn0" path="res://scenes/terrain/ground_mid.tscn" id="9_utbpp"]
 [ext_resource type="PackedScene" uid="uid://ckpk2nraeh6pc" path="res://scenes/terrain/ground_short.tscn" id="10_mw25s"]
 [ext_resource type="PackedScene" uid="uid://6u1lfokfmi0" path="res://scenes/terrain/ground_tall.tscn" id="11_tcjrq"]
 [ext_resource type="PackedScene" uid="uid://c0ycoi1xehxi1" path="res://scenes/laser.tscn" id="12_rvs2r"]
 [ext_resource type="PackedScene" uid="uid://dnyg8us5sygj" path="res://scenes/terrain/ground_mid_pickup.tscn" id="13_5ay1a"]
-[ext_resource type="Script" path="res://scripts/health_bar.gd" id="13_tqxxy"]
+[ext_resource type="Script" uid="uid://c36ipdximtvk2" path="res://scripts/health_bar.gd" id="13_tqxxy"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgj8m"]
 
@@ -46,6 +47,14 @@ corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_liy57"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwyo0"]
+bg_color = Color(1, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_mwyo0"]
 script = ExtResource("8_b5spy")
@@ -266,6 +275,24 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 72
 text = "3"
+
+[node name="dashUIcanvas" type="CanvasLayer" parent="CanvasLayer" unique_id=965695019]
+scale = Vector2(0.25, 0.25)
+transform = Transform2D(0.25, 0, 0, 0.25, 0, 0)
+
+[node name="dashabar" type="ProgressBar" parent="CanvasLayer/dashUIcanvas" unique_id=834055820]
+visible = false
+custom_minimum_size = Vector2(238.495, 35.93)
+offset_left = 457.0
+offset_top = 381.0
+offset_right = 695.495
+offset_bottom = 416.93
+theme_override_styles/background = SubResource("StyleBoxFlat_liy57")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mwyo0")
+max_value = 400.0
+value = 100.0
+show_percentage = false
+script = ExtResource("9_liy57")
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1627623242]
 script = ExtResource("7_kk2rg")

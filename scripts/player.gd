@@ -28,6 +28,7 @@ const PIXELS_PER_METER := 32.0
 var dash_time_left = 0.0
 var dash_cooldown_left = 0.0
 var dash_direction = Vector2.ZERO
+@onready var dash_bar = get_node("../CanvasLayer/dashUIcanvas/dashabar")
 
 var is_dying = false
 var is_invincible = false
@@ -71,6 +72,9 @@ func _physics_process(delta: float) -> void:
 			velocity = dash_direction * (dash_speed + fast_powerup_speed_increase)
 		else:
 			velocity = dash_direction * dash_speed
+		
+		if active_powerstate != PowerState.INFDASH:
+			update_dash_bar(dash_time_left * 500) # scale dash cooldown to percentage value
 	else:
 		if dash_time_left + delta > 0:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
@@ -222,6 +226,8 @@ func update_animation():
 		State.DYING:
 			$AnimationPlayer.play("dying")
 
+func update_dash_bar(val):
+	dash_bar.update_value(val)
 
 func _on_invincibility_timer_timeout() -> void:
 	is_invincible = false
