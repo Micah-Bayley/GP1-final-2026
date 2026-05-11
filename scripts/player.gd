@@ -108,6 +108,8 @@ func handle_jump():
 			jumps_left -= 2
 			return
 		jumps_left -= 1
+		
+		$soundEffects/jump.play()
 
 
 func handle_movement():
@@ -128,6 +130,7 @@ func handle_movement():
 func handle_dash_check():
 	if Input.is_action_just_pressed("LMB") and dash_cooldown_left <= 0 and air_dashes_left > 0:
 		start_dash()
+		$soundEffects/dash.play()
 		if active_powerstate == PowerState.INFDASH:
 			return
 		air_dashes_left -= 1
@@ -184,6 +187,8 @@ func on_player_laser_touch():
 	if $Sparks.emitting:
 		$Sparks.restart()
 	$Sparks.emitting = true
+	
+	$soundEffects/hurt.play()
 
 func heal():
 	health += 1

@@ -289,7 +289,6 @@ offset_right = 695.495
 offset_bottom = 416.93
 theme_override_styles/background = SubResource("StyleBoxFlat_liy57")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mwyo0")
-max_value = 400.0
 value = 100.0
 show_percentage = false
 script = ExtResource("9_liy57")

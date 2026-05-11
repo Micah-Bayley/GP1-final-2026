@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://b1276tcjivx81" path="res://assets/Staff Nomad/STAFF/Nomad3_Asset.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://wddgu6jaiy0m" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="AudioStream" uid="uid://b5xihc6xscyyv" path="res://assets/sounds/sfx_jump.mp3" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://bt8vam3c135k8" path="res://assets/sounds/sfx_dash.mp3" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://buujpmagewk3b" path="res://assets/sounds/sfx_laser.mp3" id="5_qlg0r"]
 
 [sub_resource type="Gradient" id="Gradient_g2els"]
 offsets = PackedFloat32Array(0.3533654, 1)
@@ -376,6 +379,20 @@ wait_time = 9.0
 
 [node name="FastTimer" type="Timer" parent="." unique_id=910970562]
 wait_time = 9.0
+
+[node name="soundEffects" type="Node2D" parent="." unique_id=481251764]
+
+[node name="jump" type="AudioStreamPlayer" parent="soundEffects" unique_id=319448323]
+stream = ExtResource("3_qhqgy")
+bus = &"SFX"
+
+[node name="dash" type="AudioStreamPlayer" parent="soundEffects" unique_id=795288368]
+stream = ExtResource("4_dqkch")
+bus = &"SFX"
+
+[node name="hurt" type="AudioStreamPlayer" parent="soundEffects" unique_id=677368883]
+stream = ExtResource("5_qlg0r")
+bus = &"SFX"
 
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
 [connection signal="timeout" from="InfDashTimer" to="." method="_on_inf_dash_timer_timeout"]
