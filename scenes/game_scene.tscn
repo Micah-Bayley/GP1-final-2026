@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://ds4mlnsi1dxem" path="res://assets/background/rocky-nowater-close.png" id="4_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="6_rgj8m"]
 [ext_resource type="Script" uid="uid://yqsmkbqn1h6s" path="res://scripts/spawn_manager.gd" id="7_kk2rg"]
-[ext_resource type="Script" uid="uid://brbgkwbcfvo7p" path="res://scripts/terrain_data.gd" id="8_b5spy"]
-[ext_resource type="Script" path="res://scripts/dash_bar.gd" id="9_103ce"]
+[ext_resource type="Script" path="res://scripts/terrain_data.gd" id="8_b5spy"]
+[ext_resource type="Script" uid="uid://3saomnsj7aqd" path="res://scripts/dash_bar.gd" id="9_103ce"]
 [ext_resource type="Script" path="res://scripts/dashabar.gd" id="9_liy57"]
 [ext_resource type="PackedScene" uid="uid://crkfeetak1wn0" path="res://scenes/terrain/ground_mid.tscn" id="9_utbpp"]
 [ext_resource type="PackedScene" uid="uid://ckpk2nraeh6pc" path="res://scenes/terrain/ground_short.tscn" id="10_mw25s"]
@@ -137,14 +137,14 @@ func stop_all():
 
 
 func _on_timer_timeout() -> void:
-	if spawner.scroll_speed <= 251:
+	if spawner.scroll_speed <= 351:
 		if not $\"../Music/0\".playing:
 			stop_music()
 			$\"../Music/0\".playing = true
 		stop_all()
 		$Slow.emitting = true
 		$Slow.visible = true
-	elif spawner.scroll_speed <= 500:
+	elif spawner.scroll_speed <= 600:
 		if not $\"../Music/1\".playing:
 			stop_music()
 			$\"../Music/1\".playing = true		

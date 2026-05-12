@@ -288,9 +288,10 @@ func die():
 	
 	# Save the score if it is higher
 	var high_score = SettingsManager.get_setting("player", "high_score")
-	if high_score and score > high_score:
+	if score > high_score:
 		SettingsManager.set_setting("player", "high_score", score)
 		SettingsManager.save_settings()
+		print(high_score)
 	
 	$AnimationPlayer.play("dying")
 	
