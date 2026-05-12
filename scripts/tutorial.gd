@@ -36,7 +36,7 @@ func update_page():
 	# Update text
 	if current_page < tutorial_texts.size():
 		tutorial_label.clear()
-		tutorial_label.append_text(tutorial_texts[current_page])
+		tutorial_label.append_text(tr(tutorial_texts[current_page]))
 	else:
 		tutorial_label.text = ""
 
@@ -45,9 +45,9 @@ func update_page():
 
 	# Change button text on last page
 	if current_page == tutorial_pages.size() - 1:
-		next_button.text = "Exit"
+		next_button.text = "EXIT"
 	else:
-		next_button.text = "Next"
+		next_button.text = "NEXT"
 
 
 func _on_next_button_pressed() -> void:

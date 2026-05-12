@@ -22,3 +22,15 @@ INVINCIBILITY,+Invincibility,+Invincibilité
 INFINITE_DASH,+Infinite Dash,+Infini Élan
 SPEED,+Speed,+Vitesse
 AIR_DASH,+Air Dash,+Élan Aérien
+NEXT_INSTRUCTION,Next Instruction,Instruction Suivante
+PREVIOUS_INSTRUCTION,Previous Instruction,Instruction Précédente
+NEXT,Next,Suivant
+PREVIOUS,Previous,Précédent
+Introduction,Introduction,Introduction
+Movement,Movement,Mouvement
+Dashing,Dashing,Élan Aérien
+Pickups,Pickups,Collectibles
+INTRO_TUT,"Welcome to Desert Run! In this game, the goal is to go as far as you can without getting eliminated. Make sure to avoid lasers and the storm at the left!","Bienvenue dans Desert Run ! Dans ce jeu, le but est d'aller aussi loin que possible sans être éliminé. Assurez-vous d'éviter les lasers et la tempête à gauche !"
+JUMP_TUT,You can move with the WASD keys. You can jump and double jump by using the space bar!,Vous pouvez vous déplacer avec les touches WASD. Vous pouvez sauter et faire un double saut en utilisant la barre d'espace !
+DASH_TUT,You can dash in any direction you want! Position your mouse in any direction and click on the left mouse button! Make sure to keep track of your dash meter in the top-left corner!,Vous pouvez faire un élan dans n'importe quelle direction que vous voulez ! Positionnez votre souris dans n'importe quelle direction et cliquez sur le bouton gauche de la souris ! Assurez-vous de suivre votre jauge d'élan dans le coin supérieur gauche !
+PICKUP_TUT,You will encounter many pickups during your adventure. Touch them to reveal what they do!,Vous rencontrerez de nombreux objets à ramasser pendant votre aventure. Touchez-les pour révéler ce qu'ils font !
