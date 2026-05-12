@@ -2,6 +2,7 @@ extends Node2D
 
 var count = 3
 var timer = Timer.new()
+var current_song;
 
 @onready var playlist = get_node("Music")
 
@@ -16,6 +17,7 @@ func _ready() -> void:
 	add_child(timer)
 	timer.start(1)
 	timer.connect("timeout", timer_timeout)
+	play_music()
 	
 		
 func timer_timeout():
@@ -28,7 +30,15 @@ func timer_timeout():
 		timer.queue_free()
 		return
 	timer.start(1)
-	play_music()
 
 func play_music():
-	playlist.get_child(randi_range(0,3)).play()
+	current_song = randi_range(0,3)
+	var song = playlist.get_child(current_song) as AudioStreamPlayer
+	song.play()
+	song.connect("finished", next_song)
+
+func next_song():
+	current_song = (current_song + 1) % 4
+	var song = playlist.get_child(current_song) as AudioStreamPlayer
+	song.play()
+	song.connect("finished", next_song)
