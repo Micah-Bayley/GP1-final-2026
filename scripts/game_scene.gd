@@ -3,6 +3,8 @@ extends Node2D
 var count = 3
 var timer = Timer.new()
 
+@onready var playlist = get_node("Music")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.name = "countdownTimer"
@@ -14,6 +16,7 @@ func _ready() -> void:
 	add_child(timer)
 	timer.start(1)
 	timer.connect("timeout", timer_timeout)
+	
 		
 func timer_timeout():
 	count -= 1
@@ -25,4 +28,7 @@ func timer_timeout():
 		timer.queue_free()
 		return
 	timer.start(1)
-	
+	play_music()
+
+func play_music():
+	playlist.get_child(randi_range(0,3)).play()
