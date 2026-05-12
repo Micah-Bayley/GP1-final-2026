@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal health_changed
+signal dash_changed
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -94,7 +95,9 @@ func handle_landing_mechanics(delta):
 	
 	if is_on_floor():
 		jumps_left = MAX_JUMPS
-		air_dashes_left = air_dashes
+		if dash_cooldown_left <= 0:
+			air_dashes_left = air_dashes
+			dash_changed.emit(air_dashes_left)
 
 
 func handle_jump():
@@ -136,6 +139,7 @@ func handle_dash_check():
 		if active_powerstate == PowerState.INFDASH:
 			return
 		air_dashes_left -= 1
+		dash_changed.emit(air_dashes_left)
 
 func powerup_debug():
 	if Input.is_action_just_pressed("ui_left"):
@@ -221,6 +225,7 @@ func add_dash():
 	air_dashes += 1
 	air_dashes = clamp(air_dashes, 0, MAX_AIR_DASHES)
 	$"../CanvasLayer/MarginContainer3/Notification".display("+1 Air Dash")
+	dash_changed.emit(air_dashes_left)
 
 func update_animation():
 	match active_state:

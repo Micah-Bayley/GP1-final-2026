@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="6_rgj8m"]
 [ext_resource type="Script" uid="uid://yqsmkbqn1h6s" path="res://scripts/spawn_manager.gd" id="7_kk2rg"]
 [ext_resource type="Script" path="res://scripts/terrain_data.gd" id="8_b5spy"]
+[ext_resource type="Script" uid="uid://3saomnsj7aqd" path="res://scripts/dash_bar.gd" id="9_103ce"]
 [ext_resource type="Script" path="res://scripts/dashabar.gd" id="9_liy57"]
 [ext_resource type="PackedScene" uid="uid://crkfeetak1wn0" path="res://scenes/terrain/ground_mid.tscn" id="9_utbpp"]
 [ext_resource type="PackedScene" uid="uid://ckpk2nraeh6pc" path="res://scenes/terrain/ground_short.tscn" id="10_mw25s"]
@@ -16,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://6u1lfokfmi0" path="res://scenes/terrain/ground_tall.tscn" id="11_tcjrq"]
 [ext_resource type="PackedScene" uid="uid://c0ycoi1xehxi1" path="res://scenes/laser.tscn" id="12_rvs2r"]
 [ext_resource type="PackedScene" uid="uid://dnyg8us5sygj" path="res://scenes/terrain/ground_mid_pickup.tscn" id="13_5ay1a"]
-[ext_resource type="Script" path="res://scripts/health_bar.gd" id="13_tqxxy"]
+[ext_resource type="Script" uid="uid://c36ipdximtvk2" path="res://scripts/health_bar.gd" id="13_tqxxy"]
 [ext_resource type="AudioStream" uid="uid://cosdajxamnuya" path="res://assets/sounds/Militaire Electronic.mp3" id="17_s76x2"]
 [ext_resource type="AudioStream" uid="uid://b6igg12w26060" path="res://assets/sounds/Ossuary 4 - Animate.mp3" id="18_77hjl"]
 [ext_resource type="AudioStream" uid="uid://dh7unfoq3jg44" path="res://assets/sounds/Rhinoceros.mp3" id="19_77hjl"]
@@ -48,6 +49,13 @@ expand_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldkr4"]
 bg_color = Color(0.6855629, 0, 0.015009863, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pb36m"]
+bg_color = Color(0.8892043, 0.6202382, 0, 1)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
@@ -254,7 +262,11 @@ offset_bottom = 40.0
 theme_override_constants/margin_left = 62
 theme_override_constants/margin_top = 15
 
-[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/MarginContainer" unique_id=723065356]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=1732887431]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=723065356]
 custom_minimum_size = Vector2(238.495, 35.93)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_5ay1a")
@@ -262,6 +274,15 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ldkr4")
 value = 50.0
 show_percentage = false
 script = ExtResource("13_tqxxy")
+
+[node name="DashBar" type="ProgressBar" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=358604183]
+custom_minimum_size = Vector2(238.495, 35.93)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_5ay1a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pb36m")
+value = 50.0
+show_percentage = false
+script = ExtResource("9_103ce")
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer" unique_id=1307336392]
 anchors_preset = 1
@@ -328,6 +349,7 @@ theme_override_constants/margin_bottom = 50
 
 [node name="Notification" type="Label" parent="CanvasLayer/MarginContainer3" unique_id=15292847]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 script = ExtResource("10_ro0ie")
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1627623242]
