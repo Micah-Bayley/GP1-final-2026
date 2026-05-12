@@ -65,34 +65,35 @@ func _physics_process(delta: float) -> void:
 	if dash_cooldown_left > 0:
 		dash_cooldown_left -= delta
 	
-	#if dashing
-	dash_time_left -= delta
-	if dash_time_left > 0:
-		if dash_direction.x > 0:
-			velocity = dash_direction * dash_speed
+	if not is_dying:
+		#if dashing
+		dash_time_left -= delta
+		if dash_time_left > 0:
+			if dash_direction.x > 0:
+				velocity = dash_direction * dash_speed
+			else:
+				velocity.x = dash_direction.x * (dash_speed + spawner.scroll_speed)
+				velocity.y = dash_direction.y * dash_speed
+			
+			if active_powerstate == PowerState.FAST:
+				velocity = dash_direction * (dash_speed + fast_powerup_speed_increase)
+			else:
+				velocity = dash_direction * dash_speed
+			
+			if active_powerstate != PowerState.INFDASH:
+				update_dash_bar(dash_time_left * 500) # scale dash cooldown to percentage value
 		else:
-			velocity.x = dash_direction.x * (dash_speed + spawner.scroll_speed)
-			velocity.y = dash_direction.y * dash_speed
+			if dash_time_left + delta > 0:
+				velocity.y = move_toward(velocity.y, 0, SPEED)
+			handle_jump()
+			handle_movement()
+			handle_dash_check()
+			
+		update_state()
+		update_animation()
+		move_and_slide()
 		
-		if active_powerstate == PowerState.FAST:
-			velocity = dash_direction * (dash_speed + fast_powerup_speed_increase)
-		else:
-			velocity = dash_direction * dash_speed
-		
-		if active_powerstate != PowerState.INFDASH:
-			update_dash_bar(dash_time_left * 500) # scale dash cooldown to percentage value
-	else:
-		if dash_time_left + delta > 0:
-			velocity.y = move_toward(velocity.y, 0, SPEED)
-		handle_jump()
-		handle_movement()
-		handle_dash_check()
-		
-	update_state()
-	update_animation()
-	move_and_slide()
-	
-	powerup_debug()
+		powerup_debug()
 
 func handle_landing_mechanics(delta):
 	if not is_on_floor():

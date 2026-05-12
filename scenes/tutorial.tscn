@@ -1,238 +1,110 @@
 [gd_scene format=3 uid="uid://n76bu2hkxrd7"]
 
-[ext_resource type="Texture2D" uid="uid://byikyc70sdkc2" path="res://assets/background/WhiteSquare.png" id="1_0hilk"]
-[ext_resource type="Texture2D" uid="uid://c20ieeuvrp6na" path="res://assets/background/rocky-far-mountains.png" id="2_wr8iv"]
-[ext_resource type="Texture2D" uid="uid://ypngqa0wghuo" path="res://assets/background/rocky-nowater-far.png" id="3_e13mp"]
-[ext_resource type="Texture2D" uid="uid://qvmfyp55fyek" path="res://assets/background/rocky-nowater-mid.png" id="4_vrdqu"]
-[ext_resource type="Texture2D" uid="uid://ds4mlnsi1dxem" path="res://assets/background/rocky-nowater-close.png" id="5_cmspm"]
-[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="6_ikfo1"]
-[ext_resource type="Script" uid="uid://yqsmkbqn1h6s" path="res://scripts/spawn_manager.gd" id="8_bl2xa"]
-[ext_resource type="Script" uid="uid://brbgkwbcfvo7p" path="res://scripts/terrain_data.gd" id="9_15kfc"]
-[ext_resource type="PackedScene" uid="uid://crkfeetak1wn0" path="res://scenes/terrain/ground_mid.tscn" id="10_7a100"]
-[ext_resource type="PackedScene" uid="uid://ckpk2nraeh6pc" path="res://scenes/terrain/ground_short.tscn" id="11_feaue"]
-[ext_resource type="PackedScene" uid="uid://6u1lfokfmi0" path="res://scenes/terrain/ground_tall.tscn" id="12_210s6"]
-[ext_resource type="PackedScene" uid="uid://c0ycoi1xehxi1" path="res://scenes/laser.tscn" id="13_5qvs7"]
-[ext_resource type="PackedScene" uid="uid://dnyg8us5sygj" path="res://scenes/terrain/ground_mid_pickup.tscn" id="14_qbchm"]
+[ext_resource type="Script" uid="uid://6236iyuovvfq" path="res://scripts/tutorial.gd" id="1_c13y7"]
+[ext_resource type="Texture2D" uid="uid://cyup24j5lq85l" path="res://assets/tutorial/intro.png" id="2_cq4me"]
+[ext_resource type="Texture2D" uid="uid://36od84tx0m25" path="res://assets/tutorial/double_jump.png" id="3_6yjpi"]
+[ext_resource type="Texture2D" uid="uid://ceqm4q68gup85" path="res://assets/tutorial/dashpng.png" id="4_gbqnl"]
+[ext_resource type="Texture2D" uid="uid://cyfrj5kthkf0t" path="res://assets/tutorial/pickup.png" id="5_6yjpi"]
+[ext_resource type="Theme" uid="uid://df6jkepp8djew" path="res://Themes/menu_theme.tres" id="6_6yjpi"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgj8m"]
+[node name="Tutorial" type="Node2D" unique_id=869946366]
+script = ExtResource("1_c13y7")
+tutorial_pages = Array[Texture2D]([ExtResource("2_cq4me"), ExtResource("3_6yjpi"), ExtResource("4_gbqnl"), ExtResource("5_6yjpi")])
+tutorial_texts = Array[String](["Welcome to Desert Run! In this game, the goal is to go as far as you can without getting eliminated. Make sure to avoid lasers and the storm at the left!", "You can move with the WASD keys. You can jump and double jump by using the space bar!", "You can dash in any direction you want! Position your mouse in any direction and click on the left mouse button! Make sure to keep track of your dash meter in the top-left corner!", "You will encounter many pickups during your adventure. Touch them to reveal what they do!"])
+tutorial_titles = Array[String](["Introduction", "Movement", "Dashing", "Pickups"])
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2fmhe"]
-normal = Vector2(-1, 0)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=70131308]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rvs2r"]
-normal = Vector2(0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ay1a"]
-bg_color = Color(0.8941385, 0.5566252, 0.3630888, 0.64705884)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.894605, 0.7067055, 0.48585325, 1)
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
-expand_margin_left = 3.0
-expand_margin_top = 3.0
-expand_margin_right = 3.0
-expand_margin_bottom = 3.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldkr4"]
-bg_color = Color(0.6855629, 0, 0.015009863, 1)
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
-
-[sub_resource type="Curve" id="Curve_tqxxy"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_5ay1a"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.96602327, 0.78334737, 0.6248349, 0.9764706)
-
-[sub_resource type="Resource" id="Resource_mwyo0"]
-script = ExtResource("9_15kfc")
-scene = ExtResource("10_7a100")
-y_offset = -18.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_tcjrq"]
-script = ExtResource("9_15kfc")
-scene = ExtResource("11_feaue")
-y_offset = 80.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_rvs2r"]
-script = ExtResource("9_15kfc")
-scene = ExtResource("12_210s6")
-y_offset = -50.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_tqxxy"]
-script = ExtResource("9_15kfc")
-scene = ExtResource("13_5qvs7")
-random_rotation = 90.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_5ay1a"]
-script = ExtResource("9_15kfc")
-scene = ExtResource("13_5qvs7")
-allowed_lanes = Array[int]([1, 2])
-y_offset = 300.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_ldkr4"]
-script = ExtResource("9_15kfc")
-scene = ExtResource("12_210s6")
-allowed_lanes = Array[int]([2])
-y_offset = 100.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[sub_resource type="Resource" id="Resource_liy57"]
-script = ExtResource("9_15kfc")
-scene = ExtResource("14_qbchm")
-weight = 0.3
-y_offset = -18.0
-metadata/_custom_type_script = "uid://brbgkwbcfvo7p"
-
-[node name="GameScene" type="Node2D" unique_id=869946366]
-
-[node name="ParallaxBackground" type="Node2D" parent="." unique_id=1612332402]
-position = Vector2(4, -134)
-
-[node name="Sky" type="Sprite2D" parent="ParallaxBackground" unique_id=1322483121]
-modulate = Color(1.92523e-06, 0.57480556, 0.5763835, 1)
-position = Vector2(652.99994, 531.99994)
-scale = Vector2(18.747967, 10.171875)
-texture = ExtResource("1_0hilk")
-
-[node name="Mountains_01" type="Parallax2D" parent="ParallaxBackground" unique_id=614351444]
-scroll_scale = Vector2(0.2, 0.2)
-scroll_offset = Vector2(0, -96)
-repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(-50, 0)
-repeat_times = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains_01" unique_id=686976105]
-texture = ExtResource("2_wr8iv")
-centered = false
-
-[node name="Mountains_02" type="Parallax2D" parent="ParallaxBackground" unique_id=525500763]
-scroll_scale = Vector2(0.4, 0.4)
-scroll_offset = Vector2(0, -96)
-repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(-160, 0)
-repeat_times = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains_02" unique_id=1825414664]
-texture = ExtResource("3_e13mp")
-centered = false
-
-[node name="Mountains_03" type="Parallax2D" parent="ParallaxBackground" unique_id=2051011129]
-scroll_scale = Vector2(0.6, 0.6)
-scroll_offset = Vector2(0, -96)
-repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(-300, 0)
-repeat_times = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains_03" unique_id=1777809423]
-texture = ExtResource("4_vrdqu")
-centered = false
-
-[node name="Mountains_04" type="Parallax2D" parent="ParallaxBackground" unique_id=1797999639]
-scroll_offset = Vector2(0, -96)
-repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(-600, 0)
-repeat_times = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains_04" unique_id=1823919137]
-texture = ExtResource("5_cmspm")
-centered = false
-
-[node name="Player" parent="." unique_id=1506782077 node_paths=PackedStringArray("spawner", "score_label") instance=ExtResource("6_ikfo1")]
-position = Vector2(197, 531)
-scale = Vector2(3, 3)
-spawner = NodePath("../Spawner")
-score_label = NodePath("../CanvasLayer/MarginContainer2/Score")
-
-[node name="WorldBoundaries" type="StaticBody2D" parent="." unique_id=1731710863]
-
-[node name="BottomBoundary" type="CollisionShape2D" parent="WorldBoundaries" unique_id=505811273]
-position = Vector2(0, 649)
-shape = SubResource("WorldBoundaryShape2D_rgj8m")
-
-[node name="RightBoundary" type="CollisionShape2D" parent="WorldBoundaries" unique_id=297046417]
-position = Vector2(1157, 649)
-shape = SubResource("WorldBoundaryShape2D_2fmhe")
-
-[node name="TopBoundary" type="CollisionShape2D" parent="WorldBoundaries" unique_id=122578911]
-shape = SubResource("WorldBoundaryShape2D_rvs2r")
-
-[node name="Timer" type="Timer" parent="." unique_id=582660387]
-wait_time = 2.0
-autostart = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=443409645]
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=353053397]
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 62
-theme_override_constants/margin_top = 15
-
-[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/MarginContainer" unique_id=723065356]
-custom_minimum_size = Vector2(238.495, 35.93)
-layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_5ay1a")
-theme_override_styles/fill = SubResource("StyleBoxFlat_ldkr4")
-value = 50.0
-show_percentage = false
-
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer" unique_id=1307336392]
-anchors_preset = 1
-anchor_left = 1.0
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1129423070]
+texture_filter = 1
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1710707351]
+texture_filter = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -40.0
 grow_horizontal = 0
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 36
+grow_vertical = 0
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 130
 
-[node name="Score" type="Label" parent="CanvasLayer/MarginContainer2" unique_id=2142203554]
+[node name="NextButton" type="Button" parent="CanvasLayer/MarginContainer" unique_id=797203844]
 layout_mode = 2
-theme_override_font_sizes/font_size = 33
-text = "Distance: 0m"
+theme = ExtResource("6_6yjpi")
+theme_override_font_sizes/font_size = 23
+text = "Next Instruction"
 
-[node name="SandStorm" type="CPUParticles2D" parent="." unique_id=1915215694]
-visibility_layer = 524289
-position = Vector2(-6, 189)
-amount = 2000
-preprocess = 2.12
-randomness = 1.0
-emission_shape = 3
-emission_rect_extents = Vector2(16.92, 651.11)
-gravity = Vector2(0, 0)
-initial_velocity_max = 30.0
-angular_velocity_max = 1000.0
-angle_max = 720.0
-scale_amount_min = 10.0
-scale_amount_max = 50.0
-scale_amount_curve = SubResource("Curve_tqxxy")
-color = Color(0.9764706, 0.84313726, 0.7294118, 0.26666668)
-color_ramp = SubResource("Gradient_5ay1a")
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer" unique_id=854274445]
+texture_filter = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 139.0
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_bottom = 130
 
-[node name="Spawner" type="Node2D" parent="." unique_id=1627623242]
-script = ExtResource("8_bl2xa")
-terrain_types = Array[ExtResource("9_15kfc")]([SubResource("Resource_mwyo0"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4"), SubResource("Resource_liy57")])
-lanes = [507.0, 100.0, -100.0, -300.0]
-scroll_speed = 400.0
-min_gap = 200.0
-max_gap = 400.0
+[node name="PreviousButton" type="Button" parent="CanvasLayer/MarginContainer2" unique_id=379222549]
+layout_mode = 2
+theme = ExtResource("6_6yjpi")
+theme_override_font_sizes/font_size = 23
+text = "Previous Instruction"
 
-[node name="SpawnPoint" type="Node2D" parent="Spawner" unique_id=1356806767]
-position = Vector2(1188, 652)
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer" unique_id=219358082]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -166.0
+offset_right = 499.5
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = -500
+theme_override_constants/margin_bottom = 80
 
-[connection signal="timeout" from="Timer" to="Spawner" method="_on_timer_timeout"]
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/MarginContainer3" unique_id=919412387]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 28
+scroll_active = false
+autowrap_mode = 2
+horizontal_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer" unique_id=1026649526]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.0
+offset_right = 61.0
+offset_bottom = 89.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 30
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/MarginContainer4" unique_id=1471760524]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 80
+text = "Intro"
+horizontal_alignment = 3
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer2/PreviousButton" to="." method="_on_previous_button_pressed"]
