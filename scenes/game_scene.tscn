@@ -96,6 +96,7 @@ y_offset = 100.0
 [sub_resource type="Resource" id="Resource_liy57"]
 script = ExtResource("8_b5spy")
 scene = ExtResource("13_5ay1a")
+weight = 0.3
 y_offset = -18.0
 
 [sub_resource type="Curve" id="Curve_tqxxy"]
