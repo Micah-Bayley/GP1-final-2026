@@ -14,10 +14,10 @@ var is_transitioning := false
 @onready var _shader_blend_rect : ColorRect = $CanvasLayer/ColorRect
 
 var default_options := {
-	"speed": 2,
+	"speed": 3,
 	"color": Color("#000000"),
 	"pattern": "fade",
-	"wait_time": 0.5,
+	"wait_time": 0.25,
 	"invert_on_enter": false,
 	"invert_on_leave": true,
 	"ease": 1.0,
