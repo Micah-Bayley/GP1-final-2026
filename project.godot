@@ -41,6 +41,10 @@ AudioManager="*uid://c58aijfh12kqh"
 window/size/mode=3
 window/stretch/mode="viewport"
 
+[gui]
+
+theme/custom_font="uid://1bsls5ox67m8"
+
 [input]
 
 jump={

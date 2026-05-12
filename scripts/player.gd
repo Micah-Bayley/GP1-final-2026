@@ -196,25 +196,31 @@ func heal():
 	health += 1
 	health = clamp(health, 0, MAX_HEALTH)
 	health_changed.emit(health)
+	$"../CanvasLayer/MarginContainer3/Notification".display("+1 HP")
 
 func invincibility():
 	is_invincible = true
 	$InvincibilityTimer.start()
 	modulate = Color.AQUAMARINE
+	$"../CanvasLayer/MarginContainer3/Notification".display("+Invincibility")
 
 func inf_dash():
 	active_powerstate = PowerState.INFDASH
 	$InfDashTimer.start()
 	modulate = Color.PURPLE
+	$"../CanvasLayer/MarginContainer3/Notification".display("+Infinite Dash")
+	
 
 func fast():
 	active_powerstate = PowerState.FAST
 	$FastTimer.start()
 	modulate = Color.YELLOW
+	$"../CanvasLayer/MarginContainer3/Notification".display("+Speed")
 
 func add_dash():
 	air_dashes += 1
 	air_dashes = clamp(air_dashes, 0, MAX_AIR_DASHES)
+	$"../CanvasLayer/MarginContainer3/Notification".display("+1 Air Dash")
 
 func update_animation():
 	match active_state:

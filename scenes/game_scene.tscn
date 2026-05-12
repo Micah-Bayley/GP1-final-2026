@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/dashabar.gd" id="9_liy57"]
 [ext_resource type="PackedScene" uid="uid://crkfeetak1wn0" path="res://scenes/terrain/ground_mid.tscn" id="9_utbpp"]
 [ext_resource type="PackedScene" uid="uid://ckpk2nraeh6pc" path="res://scenes/terrain/ground_short.tscn" id="10_mw25s"]
+[ext_resource type="Script" uid="uid://xip1lxxgip1x" path="res://scripts/notification.gd" id="10_ro0ie"]
 [ext_resource type="PackedScene" uid="uid://6u1lfokfmi0" path="res://scenes/terrain/ground_tall.tscn" id="11_tcjrq"]
 [ext_resource type="PackedScene" uid="uid://c0ycoi1xehxi1" path="res://scenes/laser.tscn" id="12_rvs2r"]
 [ext_resource type="PackedScene" uid="uid://dnyg8us5sygj" path="res://scenes/terrain/ground_mid_pickup.tscn" id="13_5ay1a"]
@@ -95,7 +96,6 @@ y_offset = 100.0
 [sub_resource type="Resource" id="Resource_liy57"]
 script = ExtResource("8_b5spy")
 scene = ExtResource("13_5ay1a")
-weight = 0.3
 y_offset = -18.0
 
 [sub_resource type="Curve" id="Curve_tqxxy"]
@@ -312,11 +312,28 @@ value = 100.0
 show_percentage = false
 script = ExtResource("9_liy57")
 
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer" unique_id=1123159600]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="Notification" type="Label" parent="CanvasLayer/MarginContainer3" unique_id=15292847]
+layout_mode = 2
+script = ExtResource("10_ro0ie")
+
 [node name="Spawner" type="Node2D" parent="." unique_id=1627623242]
 script = ExtResource("7_kk2rg")
 terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_mwyo0"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4"), SubResource("Resource_liy57")])
 lanes = [507.0, 100.0, -100.0, -300.0]
-scroll_speed = 650.0
+scroll_speed = 200.0
 min_gap = 200.0
 max_gap = 400.0
 
