@@ -7,6 +7,8 @@ extends Node2D
 	100.0   # ceiling
 ]
 @export var scroll_speed := 300.0
+@export var max_scroll_speed := 800.0
+@export var speed_increase_per_second := 15.0
 @export var spawn_x := 1200.0      # fixed X where terrain spawns (right of screen)
 @export var min_gap := 100.0        # minimum pixels between spawns
 @export var max_gap := 500.0        # maximum pixels between spawns (randomness)
@@ -22,6 +24,9 @@ func _ready():
 	_distance_to_next = 0.0
 
 func _process(delta):
+	scroll_speed += speed_increase_per_second * delta
+	scroll_speed = min (scroll_speed, max_scroll_speed)
+		
 	# Count down distance using scroll speed as a proxy for world movement
 	_distance_to_next -= scroll_speed * delta
 

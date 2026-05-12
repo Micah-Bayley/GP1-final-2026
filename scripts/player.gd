@@ -41,7 +41,7 @@ var active_powerstate = PowerState.NORMAL
 
 func _process(delta: float) -> void:
 	if (global_position.x < -5 || health < 1) && !is_dying:
-		SceneManager.change_scene("res://scenes/game_over.tscn")
+		die()
 		is_dying = true
 	if spawner and score_label:
 		distance_meters += (spawner.scroll_speed * delta) / PIXELS_PER_METER
@@ -278,3 +278,18 @@ func _on_fast_timer_timeout() -> void:
 	if active_powerstate == PowerState.FAST:
 		active_powerstate = PowerState.NORMAL
 		modulate = Color.WHITE
+		
+func die():
+	is_dying = true
+	
+	velocity = Vector2.ZERO
+	
+	# Optional: stop movement/dashing
+	dash_time_left = 0
+	dash_cooldown_left = 999
+	
+	$AnimationPlayer.play("dying")
+	
+	await $AnimationPlayer.animation_finished
+	
+	SceneManager.change_scene("res://scenes/game_over.tscn")

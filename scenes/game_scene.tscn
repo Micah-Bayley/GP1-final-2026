@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://ds4mlnsi1dxem" path="res://assets/background/rocky-nowater-close.png" id="4_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="6_rgj8m"]
 [ext_resource type="Script" uid="uid://yqsmkbqn1h6s" path="res://scripts/spawn_manager.gd" id="7_kk2rg"]
-[ext_resource type="Script" path="res://scripts/terrain_data.gd" id="8_b5spy"]
-[ext_resource type="Script" uid="uid://3saomnsj7aqd" path="res://scripts/dash_bar.gd" id="9_103ce"]
+[ext_resource type="Script" uid="uid://brbgkwbcfvo7p" path="res://scripts/terrain_data.gd" id="8_b5spy"]
+[ext_resource type="Script" path="res://scripts/dash_bar.gd" id="9_103ce"]
 [ext_resource type="Script" path="res://scripts/dashabar.gd" id="9_liy57"]
 [ext_resource type="PackedScene" uid="uid://crkfeetak1wn0" path="res://scenes/terrain/ground_mid.tscn" id="9_utbpp"]
 [ext_resource type="PackedScene" uid="uid://ckpk2nraeh6pc" path="res://scenes/terrain/ground_short.tscn" id="10_mw25s"]
@@ -105,7 +105,7 @@ y_offset = 100.0
 [sub_resource type="Resource" id="Resource_liy57"]
 script = ExtResource("8_b5spy")
 scene = ExtResource("13_5ay1a")
-weight = 0.3
+weight = 0.45
 y_offset = -18.0
 
 [sub_resource type="Curve" id="Curve_tqxxy"]
@@ -144,14 +144,14 @@ func _on_timer_timeout() -> void:
 		stop_all()
 		$Slow.emitting = true
 		$Slow.visible = true
-	elif spawner.scroll_speed <= 401:
+	elif spawner.scroll_speed <= 500:
 		if not $\"../Music/1\".playing:
 			stop_music()
 			$\"../Music/1\".playing = true		
 		stop_all()
 		$Medium.emitting = true
 		$Medium.visible = true
-	elif spawner.scroll_speed <= 601:
+	elif spawner.scroll_speed <= 800:
 		if not $\"../Music/2\".playing:
 			stop_music()
 			$\"../Music/2\".playing = true	
@@ -233,7 +233,7 @@ texture = ExtResource("4_kk2rg")
 centered = false
 
 [node name="Player" parent="." unique_id=1506782077 node_paths=PackedStringArray("spawner", "score_label") instance=ExtResource("6_rgj8m")]
-position = Vector2(197, 531)
+position = Vector2(566, 531)
 scale = Vector2(3, 3)
 spawner = NodePath("../Spawner")
 score_label = NodePath("../CanvasLayer/MarginContainer2/Score")
@@ -357,6 +357,7 @@ script = ExtResource("10_ro0ie")
 script = ExtResource("7_kk2rg")
 terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_mwyo0"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4"), SubResource("Resource_liy57")])
 lanes = [507.0, 100.0, -100.0, -300.0]
+speed_increase_per_second = 2.0
 min_gap = 200.0
 max_gap = 400.0
 
