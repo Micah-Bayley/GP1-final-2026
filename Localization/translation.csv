@@ -17,3 +17,8 @@ SCORE,Score: ,Score:
 HIGH_SCORE,High Score: ,Meilleur Score: 
 REPLAY,Replay,Rejouer
 TUTORIAL,Tutorial,Tutoriel
+1HP,+1 HP,+1 PV
+INVINCIBILITY,+Invincibility,+Invincibilité
+INFINITE_DASH,+Infinite Dash,+Infini Élan
+SPEED,+Speed,+Vitesse
+AIR_DASH,+Air Dash,+Élan Aérien

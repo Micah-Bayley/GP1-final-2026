@@ -200,7 +200,7 @@ func heal():
 	health += 1
 	health = clamp(health, 0, MAX_HEALTH)
 	health_changed.emit(health)
-	$"../CanvasLayer/MarginContainer3/Notification".display("+1 HP")
+	$"../CanvasLayer/MarginContainer3/Notification".display("1HP")
 	$"../BuffSound".stop()
 	$"../BuffSound".play()
 
@@ -210,7 +210,7 @@ func invincibility():
 	modulate = Color.AQUAMARINE
 	$"../BuffSound".stop()
 	$"../BuffSound".play()
-	$"../CanvasLayer/MarginContainer3/Notification".display("+Invincibility")
+	$"../CanvasLayer/MarginContainer3/Notification".display("INVINCIBILITY")
 
 func inf_dash():
 	active_powerstate = PowerState.INFDASH
@@ -218,7 +218,7 @@ func inf_dash():
 	modulate = Color.PURPLE
 	$"../BuffSound".stop()
 	$"../BuffSound".play()
-	$"../CanvasLayer/MarginContainer3/Notification".display("+Infinite Dash")
+	$"../CanvasLayer/MarginContainer3/Notification".display("INFINITE_DASH")
 	
 
 func fast():
@@ -227,14 +227,14 @@ func fast():
 	modulate = Color.YELLOW
 	$"../BuffSound".stop()
 	$"../BuffSound".play()
-	$"../CanvasLayer/MarginContainer3/Notification".display("+Speed")
+	$"../CanvasLayer/MarginContainer3/Notification".display("SPEED")
 
 func add_dash():
 	air_dashes += 1
 	air_dashes = clamp(air_dashes, 0, MAX_AIR_DASHES)
 	$"../BuffSound".stop()
 	$"../BuffSound".play()
-	$"../CanvasLayer/MarginContainer3/Notification".display("+1 Air Dash")
+	$"../CanvasLayer/MarginContainer3/Notification".display("AIR_DASH")
 	dash_changed.emit(air_dashes_left)
 
 func update_animation():
