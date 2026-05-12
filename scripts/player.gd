@@ -8,7 +8,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const MAX_AIR_DASHES = 10
 const MAX_JUMPS = 2
-const MAX_HEALTH = 3
+const MAX_HEALTH = 999
 
 var air_dashes = 3
 var jumps_left = MAX_JUMPS
@@ -18,7 +18,7 @@ static var score := 0.0
 var update_score = true
 const PIXELS_PER_METER := 32.0
 
-@export var health = MAX_HEALTH
+var health = MAX_HEALTH
 
 @export var dash_speed = 800.0
 @export var dash_duration = 0.15
