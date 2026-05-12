@@ -16,7 +16,6 @@ func _process(delta: float) -> void:
 		tween.tween_property($"..","position",Vector2($"..".position.x,400),1.5)
 		modulate_tween.tween_property($"..","modulate",Color(1,1,1,0),1.5)
 		tween.connect("finished", display_finished)
-		print(queue[0])
 		queue.remove_at(0)
 
 func display(text):

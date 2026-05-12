@@ -15,8 +15,8 @@ func _process(delta: float) -> void:
 
 
 func _on_replay_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/game_scene.tscn")
+	SceneManager.change_scene("res://scenes/game_scene.tscn")
 
 
 func _on_main_menu_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	SceneManager.change_scene("res://scenes/main_menu.tscn")

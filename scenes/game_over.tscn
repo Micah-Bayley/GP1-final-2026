@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dx4o1367aexdr"]
 
-[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_tbwuq"]
+[ext_resource type="Script" uid="uid://didooyllhecxe" path="res://scripts/game_over.gd" id="1_tbwuq"]
 [ext_resource type="Texture2D" uid="uid://b6xqpctfvpk56" path="res://assets/CozyDesert.png" id="2_7m3ot"]
 [ext_resource type="Theme" uid="uid://df6jkepp8djew" path="res://Themes/menu_theme.tres" id="3_v3hpu"]
 [ext_resource type="AudioStream" uid="uid://cg7xs2mphh3s6" path="res://assets/sounds/Ancient Rite.mp3" id="4_racf3"]
@@ -112,6 +112,7 @@ text = "0 m"
 [node name="BGMusic" type="AudioStreamPlayer" parent="CanvasLayer" unique_id=1451435678]
 stream = ExtResource("4_racf3")
 autoplay = true
+bus = &"Music"
 
 [node name="ClickSFX" type="AudioStreamPlayer" parent="CanvasLayer" unique_id=509002645]
 stream = SubResource("AudioStreamOggVorbis_qe12f")

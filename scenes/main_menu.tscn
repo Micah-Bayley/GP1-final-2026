@@ -234,9 +234,11 @@ text = "EXIT"
 [node name="BGMusic" type="AudioStreamPlayer" parent="CanvasLayer" unique_id=1451435678]
 stream = ExtResource("5_8ln24")
 autoplay = true
+bus = &"Music"
 
 [node name="ClickSFX" type="AudioStreamPlayer" parent="CanvasLayer" unique_id=509002645]
 stream = SubResource("AudioStreamOggVorbis_qe12f")
+bus = &"SFX"
 
 [connection signal="pressed" from="CanvasLayer/Options/VBoxContainer/LanguageBox/English" to="." method="_on_english_pressed"]
 [connection signal="pressed" from="CanvasLayer/Options/VBoxContainer/LanguageBox/French" to="." method="_on_french_pressed"]

@@ -40,9 +40,9 @@ enum PowerState { NORMAL, INVINCIBLE, FAST, INFDASH }
 var active_powerstate = PowerState.NORMAL
 
 func _process(delta: float) -> void:
-	if global_position.x < -5 || health < 1:
-		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
-		
+	if (global_position.x < -5 || health < 1) && !is_dying:
+		SceneManager.change_scene("res://scenes/game_over.tscn")
+		is_dying = true
 	if spawner and score_label:
 		distance_meters += (spawner.scroll_speed * delta) / PIXELS_PER_METER
 		score_label.text = "Distance: " + str(int(round(distance_meters))) + "m"

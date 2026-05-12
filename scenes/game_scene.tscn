@@ -357,7 +357,6 @@ script = ExtResource("10_ro0ie")
 script = ExtResource("7_kk2rg")
 terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_mwyo0"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4"), SubResource("Resource_liy57")])
 lanes = [507.0, 100.0, -100.0, -300.0]
-scroll_speed = 200.0
 min_gap = 200.0
 max_gap = 400.0
 
@@ -489,6 +488,7 @@ bus = &"Music"
 
 [node name="BuffSound" type="AudioStreamPlayer" parent="." unique_id=775653681]
 stream = ExtResource("23_pb36m")
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="Spawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="Wind/Timer" to="Wind" method="_on_timer_timeout"]
