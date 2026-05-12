@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://ds4mlnsi1dxem" path="res://assets/background/rocky-nowater-close.png" id="4_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="6_rgj8m"]
 [ext_resource type="Script" uid="uid://yqsmkbqn1h6s" path="res://scripts/spawn_manager.gd" id="7_kk2rg"]
-[ext_resource type="Script" uid="uid://brbgkwbcfvo7p" path="res://scripts/terrain_data.gd" id="8_b5spy"]
-[ext_resource type="Script" path="res://scripts/dash_bar.gd" id="9_103ce"]
+[ext_resource type="Script" path="res://scripts/terrain_data.gd" id="8_b5spy"]
+[ext_resource type="Script" uid="uid://3saomnsj7aqd" path="res://scripts/dash_bar.gd" id="9_103ce"]
 [ext_resource type="Script" path="res://scripts/dashabar.gd" id="9_liy57"]
 [ext_resource type="PackedScene" uid="uid://crkfeetak1wn0" path="res://scenes/terrain/ground_mid.tscn" id="9_utbpp"]
 [ext_resource type="PackedScene" uid="uid://ckpk2nraeh6pc" path="res://scenes/terrain/ground_short.tscn" id="10_mw25s"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://cosdajxamnuya" path="res://assets/sounds/Militaire Electronic.mp3" id="17_s76x2"]
 [ext_resource type="AudioStream" uid="uid://b6igg12w26060" path="res://assets/sounds/Ossuary 4 - Animate.mp3" id="18_77hjl"]
 [ext_resource type="AudioStream" uid="uid://dh7unfoq3jg44" path="res://assets/sounds/Rhinoceros.mp3" id="19_77hjl"]
+[ext_resource type="PackedScene" uid="uid://c4cfvecrh210a" path="res://scenes/terrain/ground_floating.tscn" id="19_85lt4"]
 [ext_resource type="AudioStream" uid="uid://c7broysil17v" path="res://assets/sounds/Unity.mp3" id="20_6aqbo"]
 [ext_resource type="AudioStream" uid="uid://s0sen8qtqy7x" path="res://assets/sounds/1 - buff.wav" id="23_pb36m"]
 
@@ -108,6 +109,13 @@ scene = ExtResource("13_5ay1a")
 weight = 0.45
 y_offset = -18.0
 
+[sub_resource type="Resource" id="Resource_xgstd"]
+script = ExtResource("8_b5spy")
+scene = ExtResource("19_85lt4")
+allowed_lanes = Array[int]([1])
+random_y_offset = 100.0
+y_offset = 200.0
+
 [sub_resource type="Curve" id="Curve_tqxxy"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -137,14 +145,14 @@ func stop_all():
 
 
 func _on_timer_timeout() -> void:
-	if spawner.scroll_speed <= 251:
+	if spawner.scroll_speed <= 351:
 		if not $\"../Music/0\".playing:
 			stop_music()
 			$\"../Music/0\".playing = true
 		stop_all()
 		$Slow.emitting = true
 		$Slow.visible = true
-	elif spawner.scroll_speed <= 500:
+	elif spawner.scroll_speed <= 600:
 		if not $\"../Music/1\".playing:
 			stop_music()
 			$\"../Music/1\".playing = true		
@@ -355,8 +363,9 @@ script = ExtResource("10_ro0ie")
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1627623242]
 script = ExtResource("7_kk2rg")
-terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_mwyo0"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4"), SubResource("Resource_liy57")])
+terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_mwyo0"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4"), SubResource("Resource_liy57"), SubResource("Resource_xgstd")])
 lanes = [507.0, 100.0, -100.0, -300.0]
+max_scroll_speed = 1000.0
 speed_increase_per_second = 2.0
 min_gap = 200.0
 max_gap = 400.0

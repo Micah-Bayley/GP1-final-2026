@@ -18,7 +18,7 @@ static var score := 0.0
 var update_score = true
 const PIXELS_PER_METER := 32.0
 
-@export var health = MAX_HEALTH
+var health = MAX_HEALTH
 
 @export var dash_speed = 800.0
 @export var dash_duration = 0.15
@@ -289,9 +289,10 @@ func die():
 	
 	# Save the score if it is higher
 	var high_score = SettingsManager.get_setting("player", "high_score")
-	if high_score and score > high_score:
+	if score > high_score:
 		SettingsManager.set_setting("player", "high_score", score)
 		SettingsManager.save_settings()
+		print(high_score)
 	
 	$AnimationPlayer.play("dying")
 	
