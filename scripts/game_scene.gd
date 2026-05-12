@@ -17,7 +17,6 @@ func _ready() -> void:
 	add_child(timer)
 	timer.start(1)
 	timer.connect("timeout", timer_timeout)
-	play_music()
 	
 		
 func timer_timeout():
@@ -30,15 +29,3 @@ func timer_timeout():
 		timer.queue_free()
 		return
 	timer.start(1)
-
-func play_music():
-	current_song = randi_range(0,3)
-	var song = playlist.get_child(current_song) as AudioStreamPlayer
-	song.play()
-	song.connect("finished", next_song)
-
-func next_song():
-	current_song = (current_song + 1) % 4
-	var song = playlist.get_child(current_song) as AudioStreamPlayer
-	song.play()
-	song.connect("finished", next_song)

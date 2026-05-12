@@ -111,6 +111,9 @@ script/source = "extends Node2D
 
 @onready var spawner = $\"../Spawner\"
 
+func stop_music():
+	for s: AudioStreamPlayer in $\"../Music\".get_children():
+		s.stop()
 
 func stop_all():
 	$Slow.emitting = false
@@ -125,18 +128,30 @@ func stop_all():
 
 func _on_timer_timeout() -> void:
 	if spawner.scroll_speed <= 251:
+		if not $\"../Music/0\".playing:
+			stop_music()
+			$\"../Music/0\".playing = true
 		stop_all()
 		$Slow.emitting = true
 		$Slow.visible = true
 	elif spawner.scroll_speed <= 401:
+		if not $\"../Music/1\".playing:
+			stop_music()
+			$\"../Music/1\".playing = true		
 		stop_all()
 		$Medium.emitting = true
 		$Medium.visible = true
 	elif spawner.scroll_speed <= 601:
+		if not $\"../Music/2\".playing:
+			stop_music()
+			$\"../Music/2\".playing = true	
 		stop_all()
 		$Fast.emitting = true
 		$Fast.visible = true
 	else:
+		if not $\"../Music/3\".playing:
+			stop_music()
+			$\"../Music/3\".playing = true
 		stop_all()
 		$Sonic.emitting = true
 		$Sonic.visible = true
@@ -301,7 +316,7 @@ script = ExtResource("9_liy57")
 script = ExtResource("7_kk2rg")
 terrain_types = Array[ExtResource("8_b5spy")]([SubResource("Resource_mwyo0"), SubResource("Resource_tcjrq"), SubResource("Resource_rvs2r"), SubResource("Resource_tqxxy"), SubResource("Resource_5ay1a"), SubResource("Resource_ldkr4"), SubResource("Resource_liy57")])
 lanes = [507.0, 100.0, -100.0, -300.0]
-scroll_speed = 200.0
+scroll_speed = 650.0
 min_gap = 200.0
 max_gap = 400.0
 
@@ -409,13 +424,14 @@ scale_curve_y = SubResource("Curve_ldkr4")
 color = Color(0.90588236, 0.62352943, 0.42745098, 0.65882355)
 
 [node name="Timer" type="Timer" parent="Wind" unique_id=2061322643]
-wait_time = 0.1
+wait_time = 0.2
 autostart = true
 
 [node name="Music" type="Node2D" parent="." unique_id=876569309]
 
 [node name="0" type="AudioStreamPlayer" parent="Music" unique_id=1238368780]
 stream = ExtResource("17_s76x2")
+autoplay = true
 bus = &"Music"
 
 [node name="1" type="AudioStreamPlayer" parent="Music" unique_id=18501281]
