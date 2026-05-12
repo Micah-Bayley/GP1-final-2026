@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://b6igg12w26060" path="res://assets/sounds/Ossuary 4 - Animate.mp3" id="18_77hjl"]
 [ext_resource type="AudioStream" uid="uid://dh7unfoq3jg44" path="res://assets/sounds/Rhinoceros.mp3" id="19_77hjl"]
 [ext_resource type="AudioStream" uid="uid://c7broysil17v" path="res://assets/sounds/Unity.mp3" id="20_6aqbo"]
+[ext_resource type="AudioStream" uid="uid://s0sen8qtqy7x" path="res://assets/sounds/1 - buff.wav" id="23_pb36m"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgj8m"]
 
@@ -344,7 +345,7 @@ offset_left = -40.0
 offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_right = 200
 theme_override_constants/margin_bottom = 50
 
 [node name="Notification" type="Label" parent="CanvasLayer/MarginContainer3" unique_id=15292847]
@@ -485,6 +486,9 @@ bus = &"Music"
 [node name="3" type="AudioStreamPlayer" parent="Music" unique_id=1006449666]
 stream = ExtResource("20_6aqbo")
 bus = &"Music"
+
+[node name="BuffSound" type="AudioStreamPlayer" parent="." unique_id=775653681]
+stream = ExtResource("23_pb36m")
 
 [connection signal="timeout" from="Timer" to="Spawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="Wind/Timer" to="Wind" method="_on_timer_timeout"]
