@@ -30,3 +30,45 @@ License: CC0 Public Domain
 Author: Matjannaaa<br>
 License: CC0 Public Domain<br>
 Library: itch.io<br>
+
+## Jump Sound Effect
+
+Author: sparkle1 (freesound community)<br>
+License: CC0 Public Domain<br>
+Library: Pixabay<br>
+
+## Laser Sound Effect
+
+Author: DRAGON-STUDIO<br>
+License: CC0 Public Domain<br>
+Library: Pixabay<br>
+
+## Swoosh Sound Effect
+
+Author: OxidVideos<br>
+License: CC0 Public Domain<br>
+Library: Pixabay<br>
+
+## Militaire Electronic
+
+Author: Kevin MacLeod<br>
+License: CC0 Public Domain<br>
+Library: Incompitech<br>
+
+## Ossurary 4 - Animate
+
+Author: Kevin MacLeod<br>
+License: CC0 Public Domain<br>
+Library: Incompitech<br>
+
+## Rhinoceros
+
+Author: Kevin MacLeod<br>
+License: CC0 Public Domain<br>
+Library: Incompitech<br>
+
+## Unity
+
+Author: Kevin MacLeod<br>
+License: CC0 Public Domain<br>
+Library: Incompitech<br>
