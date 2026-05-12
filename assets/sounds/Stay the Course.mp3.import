@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Stay the Course.mp3-17163eea63acc7dc406be53fb
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
