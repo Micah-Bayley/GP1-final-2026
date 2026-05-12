@@ -8,7 +8,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const MAX_AIR_DASHES = 10
 const MAX_JUMPS = 2
-const MAX_HEALTH = 999
+const MAX_HEALTH = 3
 
 var air_dashes = 3
 var jumps_left = MAX_JUMPS
