@@ -488,6 +488,7 @@ bus = &"Music"
 
 [node name="BuffSound" type="AudioStreamPlayer" parent="." unique_id=775653681]
 stream = ExtResource("23_pb36m")
+volume_db = 7.0
 bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="Spawner" method="_on_timer_timeout"]
