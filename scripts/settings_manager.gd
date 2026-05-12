@@ -29,6 +29,9 @@ var settings : Dictionary = {
 	"gameplay": {
 		"difficulty": 1,
 		"show_tutorial": true
+	},
+	"player": {
+		"high_score": 0
 	}
 }
 

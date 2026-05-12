@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 signal health_changed
@@ -13,7 +14,8 @@ var air_dashes = 3
 var jumps_left = MAX_JUMPS
 var air_dashes_left = air_dashes
 
-var distance_meters := 0.0
+static var score := 0.0
+var update_score = true
 const PIXELS_PER_METER := 32.0
 
 @export var health = MAX_HEALTH
@@ -39,13 +41,16 @@ var active_state = State.IDLE
 enum PowerState { NORMAL, INVINCIBLE, FAST, INFDASH }
 var active_powerstate = PowerState.NORMAL
 
+func _ready() -> void:
+	score = 0
+
 func _process(delta: float) -> void:
 	if (global_position.x < -5 || health < 1) && !is_dying:
 		die()
 		is_dying = true
-	if spawner and score_label:
-		distance_meters += (spawner.scroll_speed * delta) / PIXELS_PER_METER
-		score_label.text = "Distance: " + str(int(round(distance_meters))) + "m"
+	if spawner and score_label and update_score:
+		score += (spawner.scroll_speed * delta) / PIXELS_PER_METER
+		score_label.text = "Score: " + str(int(round(score))) + "m"
 	else:
 		print("Please connect the spawner and the score label to the player script")
 		
@@ -113,9 +118,6 @@ func handle_jump():
 			jumps_left -= 2
 			return
 		jumps_left -= 1
-		
-		
-
 
 func handle_movement():
 	var direction := Input.get_axis("left", "right")
@@ -130,8 +132,7 @@ func handle_movement():
 		$Sprite2D.scale.x = direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-
+		
 func handle_dash_check():
 	if Input.is_action_just_pressed("LMB") and dash_cooldown_left <= 0 and air_dashes_left > 0:
 		start_dash()
@@ -146,7 +147,6 @@ func powerup_debug():
 		inf_dash()
 	if Input.is_action_just_pressed("ui_right"):
 		fast()
-
 
 func start_dash():
 	var mouse_pos = get_global_mouse_position()
@@ -220,7 +220,6 @@ func inf_dash():
 	$"../BuffSound".play()
 	$"../CanvasLayer/MarginContainer3/Notification".display("INFINITE_DASH")
 	
-
 func fast():
 	active_powerstate = PowerState.FAST
 	$FastTimer.start()
@@ -261,7 +260,6 @@ func _on_invincibility_timer_timeout() -> void:
 	is_invincible = false
 	modulate = Color.WHITE
 
-
 func _on_inf_dash_timer_timeout() -> void:
 	
 	# fail-safe incase player grabs a different power-up before
@@ -269,7 +267,6 @@ func _on_inf_dash_timer_timeout() -> void:
 	if active_powerstate == PowerState.INFDASH:
 		active_powerstate = PowerState.NORMAL
 		modulate = Color.WHITE
-
 
 func _on_fast_timer_timeout() -> void:
 	
@@ -281,12 +278,19 @@ func _on_fast_timer_timeout() -> void:
 		
 func die():
 	is_dying = true
+	update_score = false
 	
 	velocity = Vector2.ZERO
 	
 	# Optional: stop movement/dashing
 	dash_time_left = 0
 	dash_cooldown_left = 999
+	
+	# Save the score if it is higher
+	var high_score = SettingsManager.get_setting("player", "high_score")
+	if high_score and score > high_score:
+		SettingsManager.set_setting("player", "high_score", score)
+		SettingsManager.save_settings()
 	
 	$AnimationPlayer.play("dying")
 	

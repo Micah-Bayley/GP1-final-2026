@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://qvmfyp55fyek" path="res://assets/background/rocky-nowater-mid.png" id="4_vrdqu"]
 [ext_resource type="Texture2D" uid="uid://ds4mlnsi1dxem" path="res://assets/background/rocky-nowater-close.png" id="5_cmspm"]
 [ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="6_ikfo1"]
-[ext_resource type="Script" path="res://scenes/health_bar.gd" id="7_dwom6"]
 [ext_resource type="Script" uid="uid://yqsmkbqn1h6s" path="res://scripts/spawn_manager.gd" id="8_bl2xa"]
 [ext_resource type="Script" uid="uid://brbgkwbcfvo7p" path="res://scripts/terrain_data.gd" id="9_15kfc"]
 [ext_resource type="PackedScene" uid="uid://crkfeetak1wn0" path="res://scenes/terrain/ground_mid.tscn" id="10_7a100"]
@@ -191,7 +190,6 @@ theme_override_styles/background = SubResource("StyleBoxFlat_5ay1a")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ldkr4")
 value = 50.0
 show_percentage = false
-script = ExtResource("7_dwom6")
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer" unique_id=1307336392]
 anchors_preset = 1

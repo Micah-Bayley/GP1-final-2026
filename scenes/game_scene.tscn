@@ -177,7 +177,7 @@ point_count = 1
 _data = [Vector2(0.26694915, 0.41091657), 0.0, 0.0, 0, 0]
 point_count = 1
 
-[node name="GameScene" type="Node2D" unique_id=869946366]
+[node name="GameScene2" type="Node2D" unique_id=869946366]
 script = ExtResource("1_ldkr4")
 
 [node name="ParallaxBackground" type="Node2D" parent="." unique_id=1612332402]
@@ -298,7 +298,7 @@ theme_override_constants/margin_right = 36
 [node name="Score" type="Label" parent="CanvasLayer/MarginContainer2" unique_id=2142203554]
 layout_mode = 2
 theme_override_font_sizes/font_size = 33
-text = "Distance: 0m"
+text = "Score: 0m"
 
 [node name="CountdownContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1359122704]
 anchors_preset = 8
