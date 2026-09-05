@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cosdajxamnuya"
-path="res://.godot/imported/Militaire Electronic.mp3-1c5f624317ecff7fc1effcc697f7b34c.mp3str"
+path="res://.godot/imported/Militaire Electronic.mp3-9081221d3117ee21605682c2830587bf.mp3str"
 
 [deps]
 
-source_file="res://assets/sounds/Militaire Electronic.mp3"
-dest_files=["res://.godot/imported/Militaire Electronic.mp3-1c5f624317ecff7fc1effcc697f7b34c.mp3str"]
+source_file="res://Assets/sounds/Militaire Electronic.mp3"
+dest_files=["res://.godot/imported/Militaire Electronic.mp3-9081221d3117ee21605682c2830587bf.mp3str"]
 
 [params]
 

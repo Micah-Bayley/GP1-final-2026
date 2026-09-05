@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cg7xs2mphh3s6"
-path="res://.godot/imported/Ancient Rite.mp3-4e049bf3181e6918c26c3565b066eeda.mp3str"
+path="res://.godot/imported/Ancient Rite.mp3-8900b93759cb5f277a91198f705cbb40.mp3str"
 
 [deps]
 
-source_file="res://assets/sounds/Ancient Rite.mp3"
-dest_files=["res://.godot/imported/Ancient Rite.mp3-4e049bf3181e6918c26c3565b066eeda.mp3str"]
+source_file="res://Assets/sounds/Ancient Rite.mp3"
+dest_files=["res://.godot/imported/Ancient Rite.mp3-8900b93759cb5f277a91198f705cbb40.mp3str"]
 
 [params]
 

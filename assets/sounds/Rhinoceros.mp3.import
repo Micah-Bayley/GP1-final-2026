@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dh7unfoq3jg44"
-path="res://.godot/imported/Rhinoceros.mp3-f993c9b66590309bec4bdfdbfa4d8e67.mp3str"
+path="res://.godot/imported/Rhinoceros.mp3-1624558c64a3a3a5426fbd04814ee810.mp3str"
 
 [deps]
 
-source_file="res://assets/sounds/Rhinoceros.mp3"
-dest_files=["res://.godot/imported/Rhinoceros.mp3-f993c9b66590309bec4bdfdbfa4d8e67.mp3str"]
+source_file="res://Assets/sounds/Rhinoceros.mp3"
+dest_files=["res://.godot/imported/Rhinoceros.mp3-1624558c64a3a3a5426fbd04814ee810.mp3str"]
 
 [params]
 

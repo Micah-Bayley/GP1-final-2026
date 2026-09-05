@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2w20h3keiqk0"
-path="res://.godot/imported/potions.png-ab13911a7eb2ca341af2a583aa00a2a8.ctex"
+path="res://.godot/imported/potions.png-9df5e384f1df94e5ebf847d7d153a827.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/16x16 Assorted RPG Icons/16x16 Assorted RPG Icons/potions.png"
-dest_files=["res://.godot/imported/potions.png-ab13911a7eb2ca341af2a583aa00a2a8.ctex"]
+source_file="res://Assets/16x16 Assorted RPG Icons/16x16 Assorted RPG Icons/potions.png"
+dest_files=["res://.godot/imported/potions.png-9df5e384f1df94e5ebf847d7d153a827.ctex"]
 
 [params]
 

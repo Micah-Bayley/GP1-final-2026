@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bt8vam3c135k8"
-path="res://.godot/imported/sfx_dash.mp3-8459cdb5e52516a5210c7bee2a93fc53.mp3str"
+path="res://.godot/imported/sfx_dash.mp3-416019ce0d44dfd67367ded017c096b7.mp3str"
 
 [deps]
 
-source_file="res://assets/sounds/sfx_dash.mp3"
-dest_files=["res://.godot/imported/sfx_dash.mp3-8459cdb5e52516a5210c7bee2a93fc53.mp3str"]
+source_file="res://Assets/sounds/sfx_dash.mp3"
+dest_files=["res://.godot/imported/sfx_dash.mp3-416019ce0d44dfd67367ded017c096b7.mp3str"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c4js0181mueyc"
-path="res://.godot/imported/Stay the Course.mp3-17163eea63acc7dc406be53fbd9fbc5d.mp3str"
+path="res://.godot/imported/Stay the Course.mp3-0e014df7e4e4d17d04bf323314276ed2.mp3str"
 
 [deps]
 
-source_file="res://assets/sounds/Stay the Course.mp3"
-dest_files=["res://.godot/imported/Stay the Course.mp3-17163eea63acc7dc406be53fbd9fbc5d.mp3str"]
+source_file="res://Assets/sounds/Stay the Course.mp3"
+dest_files=["res://.godot/imported/Stay the Course.mp3-0e014df7e4e4d17d04bf323314276ed2.mp3str"]
 
 [params]
 

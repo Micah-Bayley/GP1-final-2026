@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://buujpmagewk3b"
-path="res://.godot/imported/sfx_laser.mp3-861cd5366ba5e3a3b0b8b8dc2a65b0ba.mp3str"
+path="res://.godot/imported/sfx_laser.mp3-e93937c7f63f876ca3bb8f513328681b.mp3str"
 
 [deps]
 
-source_file="res://assets/sounds/sfx_laser.mp3"
-dest_files=["res://.godot/imported/sfx_laser.mp3-861cd5366ba5e3a3b0b8b8dc2a65b0ba.mp3str"]
+source_file="res://Assets/sounds/sfx_laser.mp3"
+dest_files=["res://.godot/imported/sfx_laser.mp3-e93937c7f63f876ca3bb8f513328681b.mp3str"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dm2qo4dcyc4k0"
-path="res://.godot/imported/Flag_of_France_(1790–1794).svg.png-ad1b1e59323fbdcc32df6cd0e932fcc9.ctex"
+path="res://.godot/imported/Flag_of_France_(1790–1794).svg.png-03a8f9cc1cc319bf6ba570220bdd5f3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Flag_of_France_(1790–1794).svg.png"
-dest_files=["res://.godot/imported/Flag_of_France_(1790–1794).svg.png-ad1b1e59323fbdcc32df6cd0e932fcc9.ctex"]
+source_file="res://Assets/Flag_of_France_(1790–1794).svg.png"
+dest_files=["res://.godot/imported/Flag_of_France_(1790–1794).svg.png-03a8f9cc1cc319bf6ba570220bdd5f3e.ctex"]
 
 [params]
 

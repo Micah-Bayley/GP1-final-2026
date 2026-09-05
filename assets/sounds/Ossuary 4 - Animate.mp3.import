@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://b6igg12w26060"
-path="res://.godot/imported/Ossuary 4 - Animate.mp3-2280df6f77eaf8f2ce0af7e1d6f524b2.mp3str"
+path="res://.godot/imported/Ossuary 4 - Animate.mp3-8f5fb41ac79ce373846cc61aa809058d.mp3str"
 
 [deps]
 
-source_file="res://assets/sounds/Ossuary 4 - Animate.mp3"
-dest_files=["res://.godot/imported/Ossuary 4 - Animate.mp3-2280df6f77eaf8f2ce0af7e1d6f524b2.mp3str"]
+source_file="res://Assets/sounds/Ossuary 4 - Animate.mp3"
+dest_files=["res://.godot/imported/Ossuary 4 - Animate.mp3-8f5fb41ac79ce373846cc61aa809058d.mp3str"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c7broysil17v"
-path="res://.godot/imported/Unity.mp3-6f930fa04f09cbd4ff54b6ce58306d44.mp3str"
+path="res://.godot/imported/Unity.mp3-172b751d47c3a355f30fb1b704c0bf36.mp3str"
 
 [deps]
 
-source_file="res://assets/sounds/Unity.mp3"
-dest_files=["res://.godot/imported/Unity.mp3-6f930fa04f09cbd4ff54b6ce58306d44.mp3str"]
+source_file="res://Assets/sounds/Unity.mp3"
+dest_files=["res://.godot/imported/Unity.mp3-172b751d47c3a355f30fb1b704c0bf36.mp3str"]
 
 [params]
 

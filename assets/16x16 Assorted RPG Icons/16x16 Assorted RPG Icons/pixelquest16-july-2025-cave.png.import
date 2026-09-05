@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bx3p2ak7w4arx"
-path="res://.godot/imported/pixelquest16-july-2025-cave.png-47e6829212bdc361093c55dc8eb13694.ctex"
+path="res://.godot/imported/pixelquest16-july-2025-cave.png-45cf01c2f4baeda252993430f1700d5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/16x16 Assorted RPG Icons/16x16 Assorted RPG Icons/pixelquest16-july-2025-cave.png"
-dest_files=["res://.godot/imported/pixelquest16-july-2025-cave.png-47e6829212bdc361093c55dc8eb13694.ctex"]
+source_file="res://Assets/16x16 Assorted RPG Icons/16x16 Assorted RPG Icons/pixelquest16-july-2025-cave.png"
+dest_files=["res://.godot/imported/pixelquest16-july-2025-cave.png-45cf01c2f4baeda252993430f1700d5c.ctex"]
 
 [params]
 
